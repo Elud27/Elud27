@@ -186,15 +186,27 @@ class EprocessoExtractor:
         }
         print(f"[INFO] Fila de Trabalho — view={view}, tipo={tipo}...")
         resp = self._get(url, params=params, encoding=FILA_ENCODING)
-        processos = self._extrair_json_fila(resp.text)
+        debug_path = f"fila_debug_{view}_{tipo}.html"
+        processos = self._extrair_json_fila(resp.text, debug_html_path=debug_path)
         print(f"[OK] {len(processos)} processos.")
         return processos
 
     @staticmethod
-    def _extrair_json_fila(html: str) -> list[dict]:
+    def _extrair_json_fila(html: str, debug_html_path: str = None) -> list[dict]:
         """
         Extrai o JSON inline passado para new FilaHandler({...}).
+        Se debug_html_path for informado, salva o HTML bruto para análise.
         """
+        if debug_html_path:
+            with open(debug_html_path, "w", encoding="utf-8") as f:
+                f.write(html)
+            print(f"[DEBUG] HTML bruto salvo em: {debug_html_path}")
+
+        # Contagem prévia de IDs para diagnóstico
+        ids_no_html = re.findall(r"'(\d+_\d+_\d+_\d+-\d+)'", html)
+        if ids_no_html:
+            print(f"[DEBUG] IDs encontrados no HTML bruto: {len(ids_no_html)}")
+
         marker    = "new FilaHandler("
         idx_start = html.find(marker)
         if idx_start == -1:
@@ -206,7 +218,7 @@ class EprocessoExtractor:
             return []
 
         # Balancear chaves para encontrar o fim do objeto
-        depth, in_str, esc, quote_char, obj_end = 0, False, False, None, obj_start
+        depth, in_str, esc, quote_char, obj_end = 0, False, False, None, -1
         for i in range(obj_start, len(html)):
             c = html[i]
             if esc:
@@ -229,12 +241,16 @@ class EprocessoExtractor:
                         obj_end = i
                         break
 
+        if obj_end == -1:
+            print("[AVISO] Balanceamento de chaves falhou — objeto truncado. Fallback HTML.")
+            return EprocessoExtractor._parse_fila_fallback(html)
+
         js_obj = html[obj_start : obj_end + 1]
 
-        # Normalizar chaves simples dos IDs de processo
+        # Normalizar todas as chaves single-quoted (não apenas IDs de processo)
         js_obj_json = re.sub(
-            r"'(\d+_\d+_\d+_\d+-\d+)'",
-            r'"\1"',
+            r"'([^'\\]*(?:\\.[^'\\]*)*)'(\s*:)",
+            lambda m: '"' + m.group(1).replace('"', '\\"') + '"' + m.group(2),
             js_obj
         )
 
@@ -254,6 +270,14 @@ class EprocessoExtractor:
             row = {"id_raw": id_raw}
             row.update(campos)
             processos.append(row)
+
+        if ids_no_html and len(processos) != len(ids_no_html):
+            print(
+                f"[AVISO] Divergência: {len(ids_no_html)} IDs no HTML, "
+                f"mas apenas {len(processos)} foram parseados. "
+                f"IDs ausentes: {set(ids_no_html) - {p['id_raw'] for p in processos}}"
+            )
+
         return processos
 
     @staticmethod
@@ -318,7 +342,7 @@ class EprocessoExtractor:
         }
         resp = self._post(url, data=data)
         resp.encoding = FILA_ENCODING
-        return self._extrair_json_fila(resp.text)
+        return self._extrair_json_fila(resp.text, debug_html_path="fila_debug_consultar.html")
 
     # ──────────────────────────────────────────────────────────────────
     # DETALHE COMPLETO DO PROCESSO
