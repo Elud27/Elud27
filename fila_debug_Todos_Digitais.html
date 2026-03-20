@@ -1,0 +1,724 @@
+
+
+
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+	<script>
+		(function(i, s, o, g, r, a, m) {
+			i['GoogleAnalyticsObject'] = r;
+			i[r] = i[r] || function() {
+				(i[r].q = i[r].q || []).push(arguments)
+			}, i[r].l = 1 * new Date();
+			a = s.createElement(o), m = s.getElementsByTagName(o)[0];
+			a.async = 1;
+			a.src = g;
+			m.parentNode.insertBefore(a, m)
+		})(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+		
+		ga('create', 'G-39GGFTC5F9', { 'userId': 'GABRIEL ELUD ROCHA DA SILVA GOMES' });
+		
+		ga('set', 'dimension1', 'GABRIEL ELUD ROCHA DA SILVA GOMES');
+		ga('set', 'dimension2', 'PMDIADEMA');
+		ga('set', 'dimension3', 'CPAV');
+
+		ga('send', 'pageview');
+	</script>
+
+
+
+
+
+<html lang="pt-br">
+
+    
+    
+    
+        
+    
+
+     
+
+    
+
+
+
+
+
+
+
+
+
+
+<head>
+
+	<title>Fila de Processos - Todos ( Digitais )</title>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9" />
+	<meta name="language" content="pt-br" />
+
+	
+	
+	
+	
+	
+
+
+
+
+
+	
+	<script type="text/javascript" src="/cpavFilaTrabalho/js/jQuery/jquery-1.4.2.js"></script>
+	<script type="text/javascript" src="/cpavFilaTrabalho/js/jQuery/jquery.string.1.0.js"></script>
+	<script type="text/javascript" src="/cpavFilaTrabalho/js/jQuery/jquery.utilitarios.0.1.js"></script>
+	<script type="text/javascript" src="/cpavFilaTrabalho/js/jQuery/jquery-ui-1.7.2.js"></script>
+	<script type="text/javascript" src="/cpavFilaTrabalho/js/jQuery/jquery-1.6.4-promises.js"></script>
+	<script type="text/javascript" src="/cpavFilaTrabalho/js/elastic/elastic.js"></script>
+
+	<script type="text/javascript">
+		jQuery.noConflict();
+	</script>
+
+	<script src="/cpavFilaTrabalho/js/jQuery/kendoUI/js/kendo.web.min.js"></script>
+	<script src="/cpavFilaTrabalho/js/jQuery/kendoUI/js/cultures/kendo.culture.pt-BR.min.js"></script>
+
+	<script type="text/javascript">var localeJS = "pt_BR_padrao";</script>
+<script type="text/javascript" src="/cpavFilaTrabalho/js/spwResourceMsg.js"></script> 
+<script type="text/javascript" src="/cpavFilaTrabalho/js/spwResourceMap_pt.js"></script>
+
+	<script type="text/javascript" src="/cpavFilaTrabalho/js/prototype.js"></script>
+	<script type="text/javascript" src="/cpavFilaTrabalho/js/spwConcatenado.js"></script>
+	<script type="text/javascript" src="/cpavFilaTrabalho/js/manhattanConcatenado.js"></script>
+	<script type="text/javascript" src="/cpavFilaTrabalho/js/fila/jquery.pagination.js"></script>
+	
+	<script type="text/javascript" src="/cpavFilaTrabalho/js/cpavUtils.js?v=13.6.2"></script>
+	<script type="text/javascript" src="/cpavFilaTrabalho/js/fila/filatrabalho.js"></script>
+	<script type="text/JavaScript" src="/cpavFilaTrabalho/js/sider.js"></script>
+	<script type="text/javascript" src="/cpavFilaTrabalho/js/fila/jquery.placeholder.js"></script>
+	<script type="text/javascript" src="/cpavFilaTrabalho/js/fila/jquery.cookie.js"></script>
+	
+	<script language="javascript" type="text/JavaScript" src="/cpavFilaTrabalho/dwr/engine.js"></script>
+	<script language="javascript" type="text/JavaScript" src="/cpavFilaTrabalho/dwr/util.js"></script>
+
+	
+	<!--[if IE 7]>
+	<link rel="stylesheet" type="text/css" href="/cpavFilaTrabalho/css/spwIE7.css" />
+	<![endif]-->
+	
+	<!--[if lte IE 8]>
+	<style type="text/css">
+		#holderConteudo1 {
+		  width:expression(document.body.clientWidth-7);
+		}
+	</style>
+	<![endif]-->
+	
+	
+
+ 		<link href="/cpavFilaTrabalho/css/fila/cpavFilaTrabalhoTag.css?v=13.6.2" rel="stylesheet" type="text/css" />
+		 <link href="/cpavFilaTrabalho/css/fila/clientes/cpavFilaTrabalho_padrao.css?v=13.6.2" rel="stylesheet" type="text/css" />
+		<link href="/cpavFilaTrabalho/css/fila/colorPicker.css?v=13.6.2" rel="stylesheet" type="text/css"/>
+		<link href="/cpavFilaTrabalho/css/fila/cpavFilaTrabalhoProcesso.css?v=13.6.2" rel="stylesheet" type="text/css" />
+		<!-- <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
+	    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600&display=swap" rel="stylesheet"> -->
+	    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	    <link href="/cpavFilaTrabalho/js/jQuery/kendoUI/css/kendo.common.min.css" rel="stylesheet" type="text/css"/>
+		<link href="/cpavFilaTrabalho/js/jQuery/kendoUI/css/kendo.default.min.css" rel="stylesheet" type="text/css"/>
+		
+			<!-- Configuração Facelift -->
+		
+		<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<meta http-equiv="X-UA-Compatible" content="IE=8; IE=7" />
+<meta http-equiv="cache-control" content="no-store" />    
+<meta http-equiv="cache-control" content="must-revalidate" />
+
+<html>
+
+<!-- CSS Client -->
+<style>
+    :root {
+        --primary-main: #00838F;
+        --primary-dark: #006064;
+        --primary-medium: #0097A7;
+        --primary-light: #00BCD4;
+        --primary-xl: #B2EBF2;
+        --primary-xxl: #E0F7FA;
+
+        /* Cores secundaria */
+        --secondary-dark: #212121;
+        --secondary-main: #616161;
+        --secondary-medium: #9E9E9E;
+        --secondary-light: ;
+        --secondary-xl: #F5F5F5;
+        --secondary-xxl: #FAFAFA;
+
+        /* Cores de superficie */
+        --surface-dark: #212121;
+        --surface-main: #616161;
+        --surface-medium: #9E9E9E;
+        --surface-light: #E0E0E0;
+        --surface-xl: #F5F5F5;
+        --surface-xxl: #FAFAFA;
+        --surface-xxxl: #FFFFFF;
+
+        /* Cores de apoio */
+        --success-main: #558B2F;
+        --success-light: #F1F8E9;
+        --warning-main: #F57F17;
+        --warning-light: #FFFDE7;
+        --error-main: #B71C1C;
+        --error-light: #FFEBEE;
+
+        /* Cor de suporte */
+        --support-main: #5C5CFF;
+
+        /*Custom*/
+        --topBar-bg: #FFFFFF;
+        --topBar-fg: #616161;
+        --header-bg: #FFFFFF;
+        --header-fb: #212121;
+        --grid-bg: #E0E0E0;
+        --grid-fg: #616161;
+    }
+</style>
+
+<!-- CSS -->
+<link rel="stylesheet" href="/assets/sds/spw5/css/tema-min.css?v=1.0321740015268597" type="text/css"/>
+
+<!-- PORTAL -->
+<script type="text/javascript" src="/assets/sds/utils/validateSessionTimeout.js?v=1.0321740015268597"></script>
+<script type="text/javascript" src="/assets/sds/utils/validateZoomPortal.js?v=1.0321740015268597"></script>
+</html>
+
+		
+    	<script src="/cpavFilaTrabalho/js/fila/CpavFilaTrabalhoTag.js?v=13.6.2"			language="javascript" type="text/JavaScript"></script>
+		<script src="/cpavFilaTrabalho/js/fila/jquery.colorPicker.js?v=13.6.2" 			language="javascript" type="text/JavaScript"></script>
+    	<script src="/cpavFilaTrabalho/js/fila/jquery.nmcDropDown.min.js?v=13.6.2" 		language="javascript" type="text/javascript"></script>
+    	<script src="/cpavFilaTrabalho/js/fila/jquery.simplemodal-1.4.2.js?v=13.6.2" 	language="javascript" type="text/javascript"></script>
+		<script src="/cpavFilaTrabalho/js/fila/filtroConsultaFilaTrabalho.js?v=13.6.2" 	language="javascript" type="text/javascript"></script>
+		<script src="/cpavFilaTrabalho/js/fila/cpavFilaTrabalhoProcesso.js?v=13.6.2"	language="javascript" type="text/JavaScript"></script>
+    	<script src="/cpavFilaTrabalho/js/fila/jquery.ezpz_tooltip.js?v=13.6.2" 		language="javascript" type="text/javascript"></script>
+		<script src="/cpavFilaTrabalho/dwr/interface/FormatadorDWR.js?v=13.6.2"	language="javascript" type="text/JavaScript"></script>
+		<script src="/cpavFilaTrabalho/formatador/formatador.js?v=13.6.2" 			language="javascript" type="text/JavaScript"></script>
+    	
+    	<style type="text/css">
+    		.column label {margin-right: 5px;}
+    		input[type="checkbox"] {
+				margin: 0 !important;
+			    padding: 0 !important;
+			    height: auto !important;
+			    min-width: auto !important;
+			    min-height: auto !important;
+			}
+			div.search > div > input[type=text] {
+				margin: 0 !important;
+			    padding: 0 !important;
+			    height: auto !important;
+			    min-width: auto !important;
+			    min-height: auto !important;
+			}
+			.paddinT{
+				padding-top: 12px;
+			}
+			.changeDirect{
+				direction: rtl;
+			}
+			#actions{
+				border: none;
+			}
+			.disabled{
+				background-color: transparent!important;
+				border:none;
+			}
+			.toggle{
+				background: none;
+			}
+			@media (max-width: 1590px) {
+				.fundo {
+                	overflow: visible !important;			
+				}
+				.filtros-fila{
+					max-width: 1500px;
+				}
+				#filaWrapper {
+                    min-width: 0;
+			        
+				}
+			}
+
+			#screen2 {
+				position: fixed;
+  				top: 0;
+				left: 0;
+				width: 100vw;
+				height: 100vh;
+				z-index: 10000;
+				opacity: 0;
+				transform: translateX(100%);
+				transition: opacity 0.4s ease, transform 0.4s ease;
+				flex-direction: row;
+				overflow: hidden;
+				visibility: hidden;
+				pointer-events: none;
+			}
+
+			#container-custom.show-screen2 #screen1 {
+				opacity: 0;
+				visibility: hidden;
+				pointer-events: none;
+			}
+
+			#container-custom.show-screen2 #screen2 {
+				display: flex;
+				opacity: 0;
+				transform: translateX(100%);
+				visibility: hidden;
+				pointer-events: none;
+			}
+
+			#container-custom.show-screen2 #screen2.active {
+				opacity: 1;
+				transform: translateX(0);
+				visibility: visible;
+				pointer-events: auto;
+			}
+
+			#screen2 .sidebar {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+
+			#screen2 .sidebar ul {
+				z-index: 1;
+				margin-right: -35px;
+			}
+
+			#screen2 .iframe-container {
+				flex: 1;
+				height: 100vh;
+				overflow: hidden;
+			}
+
+			#screen2 iframe {
+				width: 100%;
+				height: 100%;
+				border: none;
+				overflow-y: auto;
+				-webkit-overflow-scrolling: touch;
+			}
+
+			#screen2 div.sidebar ul li.hide {
+				list-style: none;
+				width: 30px;
+				height: 30px;
+				padding: 5px;
+				background-color: var(--primary-main);
+				border-radius: 50%;
+				color: white;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				box-sizing: border-box;
+				cursor: pointer;
+			}
+
+			#screen2 div.sidebar ul li.hide a:hover {
+  				color: white;
+			}
+
+			#screen2 div.sidebar ul li.hide a::before {
+  				content: "\e5c4";
+				font-family: 'Material Icons';
+				font-size: 21px;
+				line-height: 1;
+			}
+    	</style>
+    	
+    	
+	
+	
+</head>
+
+	<body class="fundo">
+		<div class="screen-container show-screen1" id="container-custom">
+  			<div class="screen" id="screen1">
+		<script type="text/javascript">
+    		BENV_exibeProcessando();
+    		var subTitle = Todos Digitais;
+
+
+    		
+    	</script>
+		 
+		<div class="fundoSuperior">
+        <h1>Processos da Fila de Trabalho</h1>
+    </div>
+
+	
+		
+		
+		
+
+        <script type="text/javascript">
+            document.addEventListener("DOMContentLoaded", function() {
+                var mensagemElement = document.getElementById("spwMensagemId");
+                if (mensagemElement && mensagemElement.classList.contains('spwAlertaSucesso')) {
+                    window.parent.document.getElementById("refreshWorkflow").click();
+                }
+            });
+        </script>
+
+        <div id="filtros-fila" class="formFalso">
+		
+			  	
+			  	
+				<form name="filaTrabalhoProcessosForm" method="post" action="/cpavFilaTrabalho/consultarFilaTrabalho.do" autocomplete="off" onsubmit="return applySubmit(this, eval('function spwSubmit(t, e){decodificaInputMulSelOnSubmit();if (!IS_enableSubmit) return false; return arrumaOrgaoExterno(t);} spwSubmit(this, event);'));">
+					
+					  
+						
+							
+						
+						
+					  
+					
+					
+<div class="subTitulo">
+ <h2 onclick="return onSubtitleClick(this);">Todos (Digitais)</h2>
+ <span name="divFiltro">
+<a name="toggleFiltro" class="spwHtmlToggleUp" onmouseover="IH_toggleOver(this)" onmouseout="IH_toggleOut(this)" />&nbsp;</a>
+</span>
+</div>
+<div id="null" subtitleDiv="true"  style="display:block;" >
+					
+					<input type="hidden" name="cdAssunto" id="cdAssunto" value="" />
+					<input type="hidden" name="cdCategoria" id="cdCategoria" value="" />
+					<input type="hidden" name="cdVisualizacao" id="cdVisualizacao" value="2" />
+					<input type="hidden" name="cdGrupoassunto" id="cdGrupoassunto" value="" />
+					<input type="hidden" name="cdSetorAtual" id="cdSetorAtual" value="" />
+					<input type="hidden" name="cdUsuarioFila" id="cdUsuarioFila" value="GABRIEL.GOMES" />
+					<input type="hidden" name="nmTarefa" id="nmTarefa" value="" />
+					<input type="hidden" name="tipo" id="tipo" value="Digitais" />
+					<input type="hidden" name="view" id="view" value="Todos" />
+					
+					<span id="marcadores" style="display: none;">
+						<span id="marcadorPrazoProcesso"  class="marcadores marcadorPrazoProcesso">Possui prazo para conclusão</span>
+						<span id="marcadorPecaFisica"     class="marcadores">Possui peça(s) física(s)</span>
+						<span id="marcadorParecerTecnico" class="marcadores">Possui parecer técnico/Autorização</span>
+					</span>
+	
+					<input type="hidden" name="filtro.cdAssunto" value="" id="filtro.cdAssunto">
+					<input type="hidden" name="filtro.cdVisualizacao" value="2" id="filtro.cdVisualizacao">
+					<input type="hidden" name="filtro.cdGrupoassunto" value="" id="filtro.cdGrupoassunto"> 
+					<input type="hidden" name="filtro.cdUsuario" value="GABRIEL.GOMES" id="filtro.cdUsuario"> 
+					<input type="hidden" name="filtro.nmTarefa" value="" id="filtro.nmTarefa"> 
+					<input type="hidden" name="filtro.tipo" value="Digitais" id="filtro.tipo">
+					<input type="hidden" name="filtro.view" value="Todos" id="filtro.view">
+					<input type="hidden" name="filtro.cdDominio" value="1" id="filtro.cdDominio">
+
+					
+
+					<input type="hidden" id="dataAtualSvr" name="dataAtualSvr" value="20/03/2026"/>  
+					<input type="hidden" name="cdVisualizacaoCategoria" id="cdVisualizacaoCategoria" value="12" />
+
+					<div id="tabelaFiltros">
+					
+<div class="unit columns on-15 " style="">
+						<!--  Grupo selecionado -->
+						 
+						
+						<!-- Se foi selecionada alguam tarefa específica do WF -->
+							
+					
+						
+	<div class="columns" style="">
+									<div class="column label fixed" style="width:140px;"><label for="filtro-texto">Filtro<span></span>:</label></div>
+						
+	</div>
+						
+	<div class="columns" style="">
+									<div class="column elastic span-14">
+								<div class="meus-processos-filtro">
+									<input type="text" name="filtro.texto" value="" formatType="TEXT" onkeypress="CT_KPS(this, event);" onblur="CT_BLR(this);" onkeydown="CT_KDN(this, event);" onmousemove="CT_MMOV(this, event);" onmouseout="CT_MOUT(this, event);" onmouseover="CT_MOV(this, event);" onfocus="C_OFC(this, event);" style="" class="sds-input" id="filtro-texto" title="Número e/ou ano do processo, sigla da unidade (atual, abertura, origem), data (encaminhamento, recebimento, prazo), etc...">
+								</div>	
+							
+		</div>
+									<div class="column elastic paddinT span-1">
+								<div id="help-target-1" class="tooltip"></div>
+								<div id="help-content-1" class="tooltip-content">Busque por informações sobre os processos contidos na fila de trabalho.<br>É possível pesquisar pelos seguintes valores:<br>- Datas - encaminhamento, recebimento, prazo<br>- Siglas - unidade de origem, unidade de abertura, unidade anterior, unidade atual<br>- Números - número de processo (formatado ou não), ano do processo, volume<br>- Textual - classificação, detalhamento</div>
+							
+		</div>
+						
+	</div>
+						
+	<div class="columns" style="">
+									<div class="column elastic">
+								<div class="meus-processos-filtro">
+									<ul id="condicoes-busca" class="">
+										<li id="condicaoE-target-1" class="tooltip">E</li>
+										<li id="condicaoOU-target-1" class="tooltip">OU</li>
+										<li id="condicaoTEXTO-target-1" class="tooltip">" "</li>
+									</ul>
+									
+									<div id="condicaoE-content-1" class="tooltip-content">A busca retorna como resultado os processos que apresentam todas as palavras/números informados. Caso não seja informado nenhum operador, o E é utilizado como padrão.<br/>Exemplo: 2013 E SECADM (vai retornar todos os processos de 2013 E que possuem a SECADM como unidade anterior ou atual)</div>
+									<div id="condicaoOU-content-1" class="tooltip-content">A busca retorna como resultado os processos que apresentam alguma(s) ou todas as palavras/números informados.<br/>Exemplo: 2013 OU 2012 (vai retornar todos os processos que têm o ano de 2013 OU 2012)</div>
+									<div id="condicaoTEXTO-content-1" class="tooltip-content">A busca retorna como resultado os processos que apresentam exatamente a expressão informada entre as aspas.<br/>Exemplo: 'Solicitação de pagamento' (vai retornar todos os processos que têm a expressão 'Solicitação de pagamento' na classificação ou detalhamento)</div>
+								</div>
+							
+		</div>
+						
+	</div>
+						
+						<!-- ***************************** -->
+						<!-- ** Data de encaminhamento  ** -->
+						<!-- ***************************** -->
+						
+						
+	<div class="columns" style="">
+									<div class="column label fixed" style="width:140px;"><label for="filtro.dtEncaminhamentoInicial">Data de encaminhamento<span></span>:</label></div>
+						
+	</div>
+						
+	<div class="columns" style="">
+									<div class="column elastic">
+								
+<div id="">
+
+<table border="0" cellspacing="0" cellpadding="0" class="tableCalendario">
+	<tr>
+		<td>
+			
+<table border="0" cellspacing="0" cellpadding="0" class="tableCalendario">
+	<tr>
+		<td>
+			<input type="text" name="filtro.dtEncaminhamentoInicial" value="" formatType="DATE" locale="pt_BR" onkeypress="CD_KPS(this, event);" onblur="CD_BLR(this);CP_BLR('');" onkeydown="CD_KDN(this, event);" onmousemove="CD_MMOV(this, event);" onmouseout="CD_MOUT(this, event);" onmouseover="CD_MOV(this, event);" onfocus="CD_OFC(this, event);" onchange="CP_CNG('');" style="width:90" class="sds-input" id="filtro.dtEncaminhamentoInicial">
+		</td>
+		<td>
+			<a id="filtro.dtEncaminhamentoInicial_tpAgendamentoImg "onclick="spPopCal._popUpCalendar(this,$('filtro.dtEncaminhamentoInicial'),'dd/MM/yyyy', '/cpavFilaTrabalho/imagens/')" onmouseover="IH_mOver(this)" onmouseout="IH_mOut(this)"  class="spwHtmlCalendarIcon"/>&nbsp;</a>
+		</td>
+	</tr>
+</table>
+
+		</td>
+		<td>&nbsp;até&nbsp;</td>
+		<td>
+			
+<table border="0" cellspacing="0" cellpadding="0" class="tableCalendario">
+	<tr>
+		<td>
+			<input type="text" name="filtro.dtEncaminhamentoFinal" value="" formatType="DATE" locale="pt_BR" onkeypress="CD_KPS(this, event);" onblur="CD_BLR(this);CP_BLR('');" onkeydown="CD_KDN(this, event);" onmousemove="CD_MMOV(this, event);" onmouseout="CD_MOUT(this, event);" onmouseover="CD_MOV(this, event);" onfocus="CD_OFC(this, event);" onchange="CP_CNG('');" style="width:90" class="filtroTelaPersistencia sds-input" id="filtro.dtEncaminhamentoFinal">
+		</td>
+		<td>
+			<a id="filtro.dtEncaminhamentoFinal_tpAgendamentoImg "onclick="spPopCal._popUpCalendar(this,$('filtro.dtEncaminhamentoFinal'),'dd/MM/yyyy', '/cpavFilaTrabalho/imagens/')" onmouseover="IH_mOver(this)" onmouseout="IH_mOut(this)"  class="spwHtmlCalendarIcon"/>&nbsp;</a>
+		</td>
+	</tr>
+</table>
+
+		</td>
+	</tr>
+</table>
+</div>
+
+							
+		</div>
+	                	
+	</div>
+	                
+	                	<!-- ***************************** -->
+						<!-- ******* Data de Prazo ******* -->
+						<!-- ***************************** -->
+	                	
+	<div class="columns" style="">
+		                    		<div class="column label fixed" style="width:140px;"><label for="filtro.dtPrazoInicial">Prazo<span></span>:</label></div>
+						
+	</div>
+	                	
+	<div class="columns" style="">
+		                    		<div class="column elastic">
+		                    	
+<div id="">
+
+<table border="0" cellspacing="0" cellpadding="0" class="tableCalendario">
+	<tr>
+		<td>
+			
+<table border="0" cellspacing="0" cellpadding="0" class="tableCalendario">
+	<tr>
+		<td>
+			<input type="text" name="filtro.dtPrazoInicial" value="" formatType="DATE" locale="pt_BR" onkeypress="CD_KPS(this, event);" onblur="CD_BLR(this);CP_BLR('');" onkeydown="CD_KDN(this, event);" onmousemove="CD_MMOV(this, event);" onmouseout="CD_MOUT(this, event);" onmouseover="CD_MOV(this, event);" onfocus="CD_OFC(this, event);" onchange="CP_CNG('');" style="width:90" class="sds-input" id="filtro.dtPrazoInicial">
+		</td>
+		<td>
+			<a id="filtro.dtPrazoInicial_tpAgendamentoImg "onclick="spPopCal._popUpCalendar(this,$('filtro.dtPrazoInicial'),'dd/MM/yyyy', '/cpavFilaTrabalho/imagens/')" onmouseover="IH_mOver(this)" onmouseout="IH_mOut(this)"  class="spwHtmlCalendarIcon"/>&nbsp;</a>
+		</td>
+	</tr>
+</table>
+
+		</td>
+		<td>&nbsp;até&nbsp;</td>
+		<td>
+			
+<table border="0" cellspacing="0" cellpadding="0" class="tableCalendario">
+	<tr>
+		<td>
+			<input type="text" name="filtro.dtPrazoFinal" value="" formatType="DATE" locale="pt_BR" onkeypress="CD_KPS(this, event);" onblur="CD_BLR(this);CP_BLR('');" onkeydown="CD_KDN(this, event);" onmousemove="CD_MMOV(this, event);" onmouseout="CD_MOUT(this, event);" onmouseover="CD_MOV(this, event);" onfocus="CD_OFC(this, event);" onchange="CP_CNG('');" style="width:90" class="sds-input" id="filtro.dtPrazoFinal">
+		</td>
+		<td>
+			<a id="filtro.dtPrazoFinal_tpAgendamentoImg "onclick="spPopCal._popUpCalendar(this,$('filtro.dtPrazoFinal'),'dd/MM/yyyy', '/cpavFilaTrabalho/imagens/')" onmouseover="IH_mOver(this)" onmouseout="IH_mOut(this)"  class="spwHtmlCalendarIcon"/>&nbsp;</a>
+		</td>
+	</tr>
+</table>
+
+		</td>
+	</tr>
+</table>
+</div>
+
+	                 	   
+		</div>
+	               		
+	</div>
+	               		
+	                	
+	<div class="columns" style="">	                	
+	                	
+	</div>
+						<p align="right">
+							<input type="hidden" name="filtro.orderBy" value="PRD" id="filtroOrdenacao">
+							<span class="spwButtonDefault" onclick="onClickButtonSpan(event);" onmouseout="onMouseOutButtonSpan(event)" onmouseover="onMouseOverButtonSpan(event)"><span><input type="button" name="btnLimpar" value="Limpar" onclick="onClickLimpar();" onmouseover="B_mOver(this);" onmouseout="B_mOut(this);" class="spwBotao botaoFilaTrabalho spwBotao"></span></span>
+							<span class="spwButtonMain"onclick="onClickButtonSpan(event);" onmouseout="onMouseOutButtonSpan(event)" onmouseover="onMouseOverButtonSpan(event)"><span><input type="submit" name="btnFiltrar" value="Consultar" onclick=" BENV_CLK(this);" onmouseover="B_mOver(this);" onmouseout="B_mOut(this);" onmouseover="B_mOver(this);" onmouseout="B_mOut(this);" class="botaoFilaTrabalho spwBotaoDefault"></span></span>
+						</p>
+					</div>
+				</div>
+			 
+</div>
+<script type="text/javascript">
+jQuery(function() {var alternarMostrarEsconder = function() { 
+if (jQuery(this).parents('div.subTitulo').next('div').is(':visible')) { 
+		jQuery(this).parents('div.subTitulo').next('div').slideUp();  
+		jQuery(this).attr('class','spwHtmlToggleDown');  
+	} else { 
+		jQuery(this).parents('div.subTitulo').next('div').slideDown(function () { 
+			Elastic && Elastic.refresh(); 
+		});	
+		jQuery(this).attr('class','spwHtmlToggleUp'); 
+	} 
+}; 
+jQuery('a[name=toggleFiltro]').unbind('click');jQuery('a[name=toggleFiltro]').click(alternarMostrarEsconder); 
+});
+
+function onSubtitleClick(elem) {
+    jQuery(elem).parent().find('img[name=toggleFiltro]').trigger('click');
+    return false;
+}
+</script>
+ 
+							<br>
+					
+<div class="unit columns on-10 " style="">
+
+						
+	<div class="columns" style="">
+									<div class="column elastic span-8">
+		</div>
+									<div class="column elastic span-2">
+										<div class="column elastic linhaAgrupada changeDirect">
+					                    	<!-- <span> -->
+				                    <div class="texto-legenda">Processo não recebido</div>
+				                    <div class="circulo-legenda processoNaoRecebido"></div>
+				                 
+		</div>
+			                 
+		</div>
+						
+	</div>
+					</div>
+					
+
+					<div id="dialog-message"><div class="subject"></div></div><div id="filaWrapper" style="min-height: 700px;">
+<div id="actions-wrapper" class="table"><div id="actions" class="table"><div class="default-options"><ul><li class="check-all" title="Marcar/desmarcar todos."><a></a><ul><li class="check-all">Todos</li><li class="uncheck-all">Nenhum</li></ul></li><li class="view-mode" view="table" title="Alterar modo de visualiza??o."><a></a></li><li class="config" title="Alterar prefer?ncias do usu?rio."><a></a></li></ul><div id="preferencias-fila"><div id="div-cpav.fila.tamanho.pagina">	<label>Registros por página:</label>	<span>		<select name="cpav.fila.tamanho.pagina" id="cpav.fila.tamanho.pagina"  class="preferencia" >			<option value="50" selected padrao="true" >50</option>			<option value="100"  >100</option>			<option value="250"  >250</option>			<option value="500"  >500</option>			<option value="750"  >750</option>			<option value="1000"  >1000</option>			<option value="2000"  >2000</option>		</select>	</span></div><div id="div-cpav.fila.processos.ordenacao">	<label>Ordenação padrão:</label>	<span>		<select name="cpav.fila.processos.ordenacao" id="cpav.fila.processos.ordenacao"  class="preferencia" >			<option value="PRA"  >Número crescente</option>			<option value="PRD" selected padrao="true" >Número decrescente</option>			<option value="SEA"  >Uni. enc. crescente</option>			<option value="SED"  >Uni. enc. decrescente</option>			<option value="SAA"  >Uni. atual crescente</option>			<option value="SAD"  >Uni. atual decrescente</option>			<option value="DEA"  >Encam. crescente</option>			<option value="DED"  >Encam. decrescente</option>			<option value="PEA"  >Prazo enc. crescente</option>			<option value="PED"  >Prazo enc. decrescente</option>			<option value="DAA"  >Detalhamento crescente</option>			<option value="DAD"  >Detalhamento decrescente</option>			<option value="TAGSA"  >Status crescente</option>			<option value="TAGSD"  >Status decrescente</option>		</select>	</span></div><div id="botoes-preferencias" class="buttons">	<ul>		<li id="aplicar-preferencias"><a>Aplicar</a></li>		<li id="cancelar-preferencias"><a>Cancelar</a></li>		<li id="restaurar-preferencias"><a>Restaurar padr?es</a></li>	</ul></div></div></div><div class="search"><div><input type="text" title="Digite parte de um texto que deseja encontrar."><a class="searchButton"></a></div></div><div class="options-end"></div><div class="title" title="Todos">Todos (<span id="fila-total-itens">24</span>)</div><div id="buttons" class="buttons"><ul><li> <a  class="procEncaminhar-O"  id="ENCAMINHAR_PROCESSO" parametros="{}">Encaminhar... </a> </li><li> <a  class="receberProcesso-O"  id="RECEBER_PROCESSO" parametros="{}">Receber </a> </li>	<li class="dropDownMoreOptions"> <a class="more-options-button">Mais opções</a>		<ul><li> <a  class="arquivarProcesso-O"  id="ARQUIVAR_PROCESSO" parametros="{}">Arquivar... </a> </li><li> <a  class="recusarProcesso-O"  id="RECUSAR_PROCESSO" parametros="{}">Recusar... </a> </li><li> <a  class="imprimirProcessos-o"  id="IMPRIMIR_FILA" parametros="{}">Imprimir </a> </li>		</ul>	</li></ul></div><div id="header-fila"></div></div></div><div id="filaTrabalho" class="table"><div id="empty">Nenhum registro.</div><div id="empty-0" class="item-fila new"><div class="opcoes"><div class="arrow"></div><div class="check"></div></div><div class="dados"><div id="titulo" class="fila-column"><label class="hidden"><div style="float: left">Número</div><div class="ordenacao" value="PR"></div></label><div class="info"></div></div><div id="sgSetorAnterior" class="fila-column setor"><label><div style="float: left">Uni. enc.</div><div class="ordenacao" value="SE"></div></label><div class="info"></div></div><div id="sgSetorAtual" class="fila-column setor"><label><div style="float: left">Uni. atual</div><div class="ordenacao" value="SA"></div></label><div class="info"></div></div><div id="nmUsuarioRecebto" class="fila-column usuarioRecebto"><label><div style="float: left">Usr. Recebim.</div><div class="ordenacao" value="UR"></div></label><div class="info"></div><div class="truncate">...</div></div><div id="dtEncaminhamentoFmt" class="fila-column data"><label><div style="float: left">Encam.</div><div class="ordenacao" value="DE"></div></label><div class="info"></div></div><div id="dtPrazoFmt" class="fila-column dtPrazoFmt"><label><div style="float: left">Prazo enc.</div><div class="ordenacao" value="PE"></div></label><div class="info"></div></div><div id="deComplemento" class="fila-column "><label><div style="float: left">Detalhamento</div><div class="ordenacao" value="DA"></div></label><div class="info"></div><div class="truncate">...</div></div><div id="tags" class="fila-column tags"><label><div style="float: left">Status</div><div class="ordenacao" value="TAGS"></div></label><div class="info"></div></div><div id="snd"></div><div id="icons" class="fila-column"><label>&nbsp;</label><div class="icon restrito disabled" _title="Restrito"></div><div class="icon tramiSetor disabled" _title="Encaminhado para a unidade"></div><div class="icon tramiUsuario disabled" _title="Encaminhado para o usuário"></div></div></div></div><div id="empty-1" class="item-fila new"><div class="opcoes"><div class="arrow"></div><div class="check"></div></div><div class="dados"><div id="titulo" class="fila-column"><label class="hidden"><div style="float: left">Número</div><div class="ordenacao" value="PR"></div></label><div class="info"></div></div><div id="sgSetorAnterior" class="fila-column setor"><label><div style="float: left">Uni. enc.</div><div class="ordenacao" value="SE"></div></label><div class="info"></div></div><div id="sgSetorAtual" class="fila-column setor"><label><div style="float: left">Uni. atual</div><div class="ordenacao" value="SA"></div></label><div class="info"></div></div><div id="nmUsuarioRecebto" class="fila-column usuarioRecebto"><label><div style="float: left">Usr. Recebim.</div><div class="ordenacao" value="UR"></div></label><div class="info"></div><div class="truncate">...</div></div><div id="dtEncaminhamentoFmt" class="fila-column data"><label><div style="float: left">Encam.</div><div class="ordenacao" value="DE"></div></label><div class="info"></div></div><div id="dtPrazoFmt" class="fila-column dtPrazoFmt"><label><div style="float: left">Prazo enc.</div><div class="ordenacao" value="PE"></div></label><div class="info"></div></div><div id="deComplemento" class="fila-column "><label><div style="float: left">Detalhamento</div><div class="ordenacao" value="DA"></div></label><div class="info"></div><div class="truncate">...</div></div><div id="tags" class="fila-column tags"><label><div style="float: left">Status</div><div class="ordenacao" value="TAGS"></div></label><div class="info"></div></div><div id="snd"></div><div id="icons" class="fila-column"><label>&nbsp;</label><div class="icon restrito disabled" _title="Restrito"></div><div class="icon tramiSetor disabled" _title="Encaminhado para a unidade"></div><div class="icon tramiUsuario disabled" _title="Encaminhado para o usuário"></div></div></div></div><div id="empty-2" class="item-fila new"><div class="opcoes"><div class="arrow"></div><div class="check"></div></div><div class="dados"><div id="titulo" class="fila-column"><label class="hidden"><div style="float: left">Número</div><div class="ordenacao" value="PR"></div></label><div class="info"></div></div><div id="sgSetorAnterior" class="fila-column setor"><label><div style="float: left">Uni. enc.</div><div class="ordenacao" value="SE"></div></label><div class="info"></div></div><div id="sgSetorAtual" class="fila-column setor"><label><div style="float: left">Uni. atual</div><div class="ordenacao" value="SA"></div></label><div class="info"></div></div><div id="nmUsuarioRecebto" class="fila-column usuarioRecebto"><label><div style="float: left">Usr. Recebim.</div><div class="ordenacao" value="UR"></div></label><div class="info"></div><div class="truncate">...</div></div><div id="dtEncaminhamentoFmt" class="fila-column data"><label><div style="float: left">Encam.</div><div class="ordenacao" value="DE"></div></label><div class="info"></div></div><div id="dtPrazoFmt" class="fila-column dtPrazoFmt"><label><div style="float: left">Prazo enc.</div><div class="ordenacao" value="PE"></div></label><div class="info"></div></div><div id="deComplemento" class="fila-column "><label><div style="float: left">Detalhamento</div><div class="ordenacao" value="DA"></div></label><div class="info"></div><div class="truncate">...</div></div><div id="tags" class="fila-column tags"><label><div style="float: left">Status</div><div class="ordenacao" value="TAGS"></div></label><div class="info"></div></div><div id="snd"></div><div id="icons" class="fila-column"><label>&nbsp;</label><div class="icon restrito disabled" _title="Restrito"></div><div class="icon tramiSetor disabled" _title="Encaminhado para a unidade"></div><div class="icon tramiUsuario disabled" _title="Encaminhado para o usuário"></div></div></div></div><div id="empty-3" class="item-fila new"><div class="opcoes"><div class="arrow"></div><div class="check"></div></div><div class="dados"><div id="titulo" class="fila-column"><label class="hidden"><div style="float: left">Número</div><div class="ordenacao" value="PR"></div></label><div class="info"></div></div><div id="sgSetorAnterior" class="fila-column setor"><label><div style="float: left">Uni. enc.</div><div class="ordenacao" value="SE"></div></label><div class="info"></div></div><div id="sgSetorAtual" class="fila-column setor"><label><div style="float: left">Uni. atual</div><div class="ordenacao" value="SA"></div></label><div class="info"></div></div><div id="nmUsuarioRecebto" class="fila-column usuarioRecebto"><label><div style="float: left">Usr. Recebim.</div><div class="ordenacao" value="UR"></div></label><div class="info"></div><div class="truncate">...</div></div><div id="dtEncaminhamentoFmt" class="fila-column data"><label><div style="float: left">Encam.</div><div class="ordenacao" value="DE"></div></label><div class="info"></div></div><div id="dtPrazoFmt" class="fila-column dtPrazoFmt"><label><div style="float: left">Prazo enc.</div><div class="ordenacao" value="PE"></div></label><div class="info"></div></div><div id="deComplemento" class="fila-column "><label><div style="float: left">Detalhamento</div><div class="ordenacao" value="DA"></div></label><div class="info"></div><div class="truncate">...</div></div><div id="tags" class="fila-column tags"><label><div style="float: left">Status</div><div class="ordenacao" value="TAGS"></div></label><div class="info"></div></div><div id="snd"></div><div id="icons" class="fila-column"><label>&nbsp;</label><div class="icon restrito disabled" _title="Restrito"></div><div class="icon tramiSetor disabled" _title="Encaminhado para a unidade"></div><div class="icon tramiUsuario disabled" _title="Encaminhado para o usuário"></div></div></div></div><div id="empty-4" class="item-fila new"><div class="opcoes"><div class="arrow"></div><div class="check"></div></div><div class="dados"><div id="titulo" class="fila-column"><label class="hidden"><div style="float: left">Número</div><div class="ordenacao" value="PR"></div></label><div class="info"></div></div><div id="sgSetorAnterior" class="fila-column setor"><label><div style="float: left">Uni. enc.</div><div class="ordenacao" value="SE"></div></label><div class="info"></div></div><div id="sgSetorAtual" class="fila-column setor"><label><div style="float: left">Uni. atual</div><div class="ordenacao" value="SA"></div></label><div class="info"></div></div><div id="nmUsuarioRecebto" class="fila-column usuarioRecebto"><label><div style="float: left">Usr. Recebim.</div><div class="ordenacao" value="UR"></div></label><div class="info"></div><div class="truncate">...</div></div><div id="dtEncaminhamentoFmt" class="fila-column data"><label><div style="float: left">Encam.</div><div class="ordenacao" value="DE"></div></label><div class="info"></div></div><div id="dtPrazoFmt" class="fila-column dtPrazoFmt"><label><div style="float: left">Prazo enc.</div><div class="ordenacao" value="PE"></div></label><div class="info"></div></div><div id="deComplemento" class="fila-column "><label><div style="float: left">Detalhamento</div><div class="ordenacao" value="DA"></div></label><div class="info"></div><div class="truncate">...</div></div><div id="tags" class="fila-column tags"><label><div style="float: left">Status</div><div class="ordenacao" value="TAGS"></div></label><div class="info"></div></div><div id="snd"></div><div id="icons" class="fila-column"><label>&nbsp;</label><div class="icon restrito disabled" _title="Restrito"></div><div class="icon tramiSetor disabled" _title="Encaminhado para a unidade"></div><div class="icon tramiUsuario disabled" _title="Encaminhado para o usuário"></div></div></div></div><div id="empty-5" class="item-fila new"><div class="opcoes"><div class="arrow"></div><div class="check"></div></div><div class="dados"><div id="titulo" class="fila-column"><label class="hidden"><div style="float: left">Número</div><div class="ordenacao" value="PR"></div></label><div class="info"></div></div><div id="sgSetorAnterior" class="fila-column setor"><label><div style="float: left">Uni. enc.</div><div class="ordenacao" value="SE"></div></label><div class="info"></div></div><div id="sgSetorAtual" class="fila-column setor"><label><div style="float: left">Uni. atual</div><div class="ordenacao" value="SA"></div></label><div class="info"></div></div><div id="nmUsuarioRecebto" class="fila-column usuarioRecebto"><label><div style="float: left">Usr. Recebim.</div><div class="ordenacao" value="UR"></div></label><div class="info"></div><div class="truncate">...</div></div><div id="dtEncaminhamentoFmt" class="fila-column data"><label><div style="float: left">Encam.</div><div class="ordenacao" value="DE"></div></label><div class="info"></div></div><div id="dtPrazoFmt" class="fila-column dtPrazoFmt"><label><div style="float: left">Prazo enc.</div><div class="ordenacao" value="PE"></div></label><div class="info"></div></div><div id="deComplemento" class="fila-column "><label><div style="float: left">Detalhamento</div><div class="ordenacao" value="DA"></div></label><div class="info"></div><div class="truncate">...</div></div><div id="tags" class="fila-column tags"><label><div style="float: left">Status</div><div class="ordenacao" value="TAGS"></div></label><div class="info"></div></div><div id="snd"></div><div id="icons" class="fila-column"><label>&nbsp;</label><div class="icon restrito disabled" _title="Restrito"></div><div class="icon tramiSetor disabled" _title="Encaminhado para a unidade"></div><div class="icon tramiUsuario disabled" _title="Encaminhado para o usuário"></div></div></div></div><div id="empty-6" class="item-fila new"><div class="opcoes"><div class="arrow"></div><div class="check"></div></div><div class="dados"><div id="titulo" class="fila-column"><label class="hidden"><div style="float: left">Número</div><div class="ordenacao" value="PR"></div></label><div class="info"></div></div><div id="sgSetorAnterior" class="fila-column setor"><label><div style="float: left">Uni. enc.</div><div class="ordenacao" value="SE"></div></label><div class="info"></div></div><div id="sgSetorAtual" class="fila-column setor"><label><div style="float: left">Uni. atual</div><div class="ordenacao" value="SA"></div></label><div class="info"></div></div><div id="nmUsuarioRecebto" class="fila-column usuarioRecebto"><label><div style="float: left">Usr. Recebim.</div><div class="ordenacao" value="UR"></div></label><div class="info"></div><div class="truncate">...</div></div><div id="dtEncaminhamentoFmt" class="fila-column data"><label><div style="float: left">Encam.</div><div class="ordenacao" value="DE"></div></label><div class="info"></div></div><div id="dtPrazoFmt" class="fila-column dtPrazoFmt"><label><div style="float: left">Prazo enc.</div><div class="ordenacao" value="PE"></div></label><div class="info"></div></div><div id="deComplemento" class="fila-column "><label><div style="float: left">Detalhamento</div><div class="ordenacao" value="DA"></div></label><div class="info"></div><div class="truncate">...</div></div><div id="tags" class="fila-column tags"><label><div style="float: left">Status</div><div class="ordenacao" value="TAGS"></div></label><div class="info"></div></div><div id="snd"></div><div id="icons" class="fila-column"><label>&nbsp;</label><div class="icon restrito disabled" _title="Restrito"></div><div class="icon tramiSetor disabled" _title="Encaminhado para a unidade"></div><div class="icon tramiUsuario disabled" _title="Encaminhado para o usuário"></div></div></div></div><div id="empty-7" class="item-fila new"><div class="opcoes"><div class="arrow"></div><div class="check"></div></div><div class="dados"><div id="titulo" class="fila-column"><label class="hidden"><div style="float: left">Número</div><div class="ordenacao" value="PR"></div></label><div class="info"></div></div><div id="sgSetorAnterior" class="fila-column setor"><label><div style="float: left">Uni. enc.</div><div class="ordenacao" value="SE"></div></label><div class="info"></div></div><div id="sgSetorAtual" class="fila-column setor"><label><div style="float: left">Uni. atual</div><div class="ordenacao" value="SA"></div></label><div class="info"></div></div><div id="nmUsuarioRecebto" class="fila-column usuarioRecebto"><label><div style="float: left">Usr. Recebim.</div><div class="ordenacao" value="UR"></div></label><div class="info"></div><div class="truncate">...</div></div><div id="dtEncaminhamentoFmt" class="fila-column data"><label><div style="float: left">Encam.</div><div class="ordenacao" value="DE"></div></label><div class="info"></div></div><div id="dtPrazoFmt" class="fila-column dtPrazoFmt"><label><div style="float: left">Prazo enc.</div><div class="ordenacao" value="PE"></div></label><div class="info"></div></div><div id="deComplemento" class="fila-column "><label><div style="float: left">Detalhamento</div><div class="ordenacao" value="DA"></div></label><div class="info"></div><div class="truncate">...</div></div><div id="tags" class="fila-column tags"><label><div style="float: left">Status</div><div class="ordenacao" value="TAGS"></div></label><div class="info"></div></div><div id="snd"></div><div id="icons" class="fila-column"><label>&nbsp;</label><div class="icon restrito disabled" _title="Restrito"></div><div class="icon tramiSetor disabled" _title="Encaminhado para a unidade"></div><div class="icon tramiUsuario disabled" _title="Encaminhado para o usuário"></div></div></div></div><div id="empty-8" class="item-fila new"><div class="opcoes"><div class="arrow"></div><div class="check"></div></div><div class="dados"><div id="titulo" class="fila-column"><label class="hidden"><div style="float: left">Número</div><div class="ordenacao" value="PR"></div></label><div class="info"></div></div><div id="sgSetorAnterior" class="fila-column setor"><label><div style="float: left">Uni. enc.</div><div class="ordenacao" value="SE"></div></label><div class="info"></div></div><div id="sgSetorAtual" class="fila-column setor"><label><div style="float: left">Uni. atual</div><div class="ordenacao" value="SA"></div></label><div class="info"></div></div><div id="nmUsuarioRecebto" class="fila-column usuarioRecebto"><label><div style="float: left">Usr. Recebim.</div><div class="ordenacao" value="UR"></div></label><div class="info"></div><div class="truncate">...</div></div><div id="dtEncaminhamentoFmt" class="fila-column data"><label><div style="float: left">Encam.</div><div class="ordenacao" value="DE"></div></label><div class="info"></div></div><div id="dtPrazoFmt" class="fila-column dtPrazoFmt"><label><div style="float: left">Prazo enc.</div><div class="ordenacao" value="PE"></div></label><div class="info"></div></div><div id="deComplemento" class="fila-column "><label><div style="float: left">Detalhamento</div><div class="ordenacao" value="DA"></div></label><div class="info"></div><div class="truncate">...</div></div><div id="tags" class="fila-column tags"><label><div style="float: left">Status</div><div class="ordenacao" value="TAGS"></div></label><div class="info"></div></div><div id="snd"></div><div id="icons" class="fila-column"><label>&nbsp;</label><div class="icon restrito disabled" _title="Restrito"></div><div class="icon tramiSetor disabled" _title="Encaminhado para a unidade"></div><div class="icon tramiUsuario disabled" _title="Encaminhado para o usuário"></div></div></div></div><div id="empty-9" class="item-fila new"><div class="opcoes"><div class="arrow"></div><div class="check"></div></div><div class="dados"><div id="titulo" class="fila-column"><label class="hidden"><div style="float: left">Número</div><div class="ordenacao" value="PR"></div></label><div class="info"></div></div><div id="sgSetorAnterior" class="fila-column setor"><label><div style="float: left">Uni. enc.</div><div class="ordenacao" value="SE"></div></label><div class="info"></div></div><div id="sgSetorAtual" class="fila-column setor"><label><div style="float: left">Uni. atual</div><div class="ordenacao" value="SA"></div></label><div class="info"></div></div><div id="nmUsuarioRecebto" class="fila-column usuarioRecebto"><label><div style="float: left">Usr. Recebim.</div><div class="ordenacao" value="UR"></div></label><div class="info"></div><div class="truncate">...</div></div><div id="dtEncaminhamentoFmt" class="fila-column data"><label><div style="float: left">Encam.</div><div class="ordenacao" value="DE"></div></label><div class="info"></div></div><div id="dtPrazoFmt" class="fila-column dtPrazoFmt"><label><div style="float: left">Prazo enc.</div><div class="ordenacao" value="PE"></div></label><div class="info"></div></div><div id="deComplemento" class="fila-column "><label><div style="float: left">Detalhamento</div><div class="ordenacao" value="DA"></div></label><div class="info"></div><div class="truncate">...</div></div><div id="tags" class="fila-column tags"><label><div style="float: left">Status</div><div class="ordenacao" value="TAGS"></div></label><div class="info"></div></div><div id="snd"></div><div id="icons" class="fila-column"><label>&nbsp;</label><div class="icon restrito disabled" _title="Restrito"></div><div class="icon tramiSetor disabled" _title="Encaminhado para a unidade"></div><div class="icon tramiUsuario disabled" _title="Encaminhado para o usuário"></div></div></div></div><div id="empty-10" class="item-fila new"><div class="opcoes"><div class="arrow"></div><div class="check"></div></div><div class="dados"><div id="titulo" class="fila-column"><label class="hidden"><div style="float: left">Número</div><div class="ordenacao" value="PR"></div></label><div class="info"></div></div><div id="sgSetorAnterior" class="fila-column setor"><label><div style="float: left">Uni. enc.</div><div class="ordenacao" value="SE"></div></label><div class="info"></div></div><div id="sgSetorAtual" class="fila-column setor"><label><div style="float: left">Uni. atual</div><div class="ordenacao" value="SA"></div></label><div class="info"></div></div><div id="nmUsuarioRecebto" class="fila-column usuarioRecebto"><label><div style="float: left">Usr. Recebim.</div><div class="ordenacao" value="UR"></div></label><div class="info"></div><div class="truncate">...</div></div><div id="dtEncaminhamentoFmt" class="fila-column data"><label><div style="float: left">Encam.</div><div class="ordenacao" value="DE"></div></label><div class="info"></div></div><div id="dtPrazoFmt" class="fila-column dtPrazoFmt"><label><div style="float: left">Prazo enc.</div><div class="ordenacao" value="PE"></div></label><div class="info"></div></div><div id="deComplemento" class="fila-column "><label><div style="float: left">Detalhamento</div><div class="ordenacao" value="DA"></div></label><div class="info"></div><div class="truncate">...</div></div><div id="tags" class="fila-column tags"><label><div style="float: left">Status</div><div class="ordenacao" value="TAGS"></div></label><div class="info"></div></div><div id="snd"></div><div id="icons" class="fila-column"><label>&nbsp;</label><div class="icon restrito disabled" _title="Restrito"></div><div class="icon tramiSetor disabled" _title="Encaminhado para a unidade"></div><div class="icon tramiUsuario disabled" _title="Encaminhado para o usuário"></div></div></div></div><div id="empty-11" class="item-fila new"><div class="opcoes"><div class="arrow"></div><div class="check"></div></div><div class="dados"><div id="titulo" class="fila-column"><label class="hidden"><div style="float: left">Número</div><div class="ordenacao" value="PR"></div></label><div class="info"></div></div><div id="sgSetorAnterior" class="fila-column setor"><label><div style="float: left">Uni. enc.</div><div class="ordenacao" value="SE"></div></label><div class="info"></div></div><div id="sgSetorAtual" class="fila-column setor"><label><div style="float: left">Uni. atual</div><div class="ordenacao" value="SA"></div></label><div class="info"></div></div><div id="nmUsuarioRecebto" class="fila-column usuarioRecebto"><label><div style="float: left">Usr. Recebim.</div><div class="ordenacao" value="UR"></div></label><div class="info"></div><div class="truncate">...</div></div><div id="dtEncaminhamentoFmt" class="fila-column data"><label><div style="float: left">Encam.</div><div class="ordenacao" value="DE"></div></label><div class="info"></div></div><div id="dtPrazoFmt" class="fila-column dtPrazoFmt"><label><div style="float: left">Prazo enc.</div><div class="ordenacao" value="PE"></div></label><div class="info"></div></div><div id="deComplemento" class="fila-column "><label><div style="float: left">Detalhamento</div><div class="ordenacao" value="DA"></div></label><div class="info"></div><div class="truncate">...</div></div><div id="tags" class="fila-column tags"><label><div style="float: left">Status</div><div class="ordenacao" value="TAGS"></div></label><div class="info"></div></div><div id="snd"></div><div id="icons" class="fila-column"><label>&nbsp;</label><div class="icon restrito disabled" _title="Restrito"></div><div class="icon tramiSetor disabled" _title="Encaminhado para a unidade"></div><div class="icon tramiUsuario disabled" _title="Encaminhado para o usuário"></div></div></div></div><div id="empty-12" class="item-fila new"><div class="opcoes"><div class="arrow"></div><div class="check"></div></div><div class="dados"><div id="titulo" class="fila-column"><label class="hidden"><div style="float: left">Número</div><div class="ordenacao" value="PR"></div></label><div class="info"></div></div><div id="sgSetorAnterior" class="fila-column setor"><label><div style="float: left">Uni. enc.</div><div class="ordenacao" value="SE"></div></label><div class="info"></div></div><div id="sgSetorAtual" class="fila-column setor"><label><div style="float: left">Uni. atual</div><div class="ordenacao" value="SA"></div></label><div class="info"></div></div><div id="nmUsuarioRecebto" class="fila-column usuarioRecebto"><label><div style="float: left">Usr. Recebim.</div><div class="ordenacao" value="UR"></div></label><div class="info"></div><div class="truncate">...</div></div><div id="dtEncaminhamentoFmt" class="fila-column data"><label><div style="float: left">Encam.</div><div class="ordenacao" value="DE"></div></label><div class="info"></div></div><div id="dtPrazoFmt" class="fila-column dtPrazoFmt"><label><div style="float: left">Prazo enc.</div><div class="ordenacao" value="PE"></div></label><div class="info"></div></div><div id="deComplemento" class="fila-column "><label><div style="float: left">Detalhamento</div><div class="ordenacao" value="DA"></div></label><div class="info"></div><div class="truncate">...</div></div><div id="tags" class="fila-column tags"><label><div style="float: left">Status</div><div class="ordenacao" value="TAGS"></div></label><div class="info"></div></div><div id="snd"></div><div id="icons" class="fila-column"><label>&nbsp;</label><div class="icon restrito disabled" _title="Restrito"></div><div class="icon tramiSetor disabled" _title="Encaminhado para a unidade"></div><div class="icon tramiUsuario disabled" _title="Encaminhado para o usuário"></div></div></div></div><div id="empty-13" class="item-fila new"><div class="opcoes"><div class="arrow"></div><div class="check"></div></div><div class="dados"><div id="titulo" class="fila-column"><label class="hidden"><div style="float: left">Número</div><div class="ordenacao" value="PR"></div></label><div class="info"></div></div><div id="sgSetorAnterior" class="fila-column setor"><label><div style="float: left">Uni. enc.</div><div class="ordenacao" value="SE"></div></label><div class="info"></div></div><div id="sgSetorAtual" class="fila-column setor"><label><div style="float: left">Uni. atual</div><div class="ordenacao" value="SA"></div></label><div class="info"></div></div><div id="nmUsuarioRecebto" class="fila-column usuarioRecebto"><label><div style="float: left">Usr. Recebim.</div><div class="ordenacao" value="UR"></div></label><div class="info"></div><div class="truncate">...</div></div><div id="dtEncaminhamentoFmt" class="fila-column data"><label><div style="float: left">Encam.</div><div class="ordenacao" value="DE"></div></label><div class="info"></div></div><div id="dtPrazoFmt" class="fila-column dtPrazoFmt"><label><div style="float: left">Prazo enc.</div><div class="ordenacao" value="PE"></div></label><div class="info"></div></div><div id="deComplemento" class="fila-column "><label><div style="float: left">Detalhamento</div><div class="ordenacao" value="DA"></div></label><div class="info"></div><div class="truncate">...</div></div><div id="tags" class="fila-column tags"><label><div style="float: left">Status</div><div class="ordenacao" value="TAGS"></div></label><div class="info"></div></div><div id="snd"></div><div id="icons" class="fila-column"><label>&nbsp;</label><div class="icon restrito disabled" _title="Restrito"></div><div class="icon tramiSetor disabled" _title="Encaminhado para a unidade"></div><div class="icon tramiUsuario disabled" _title="Encaminhado para o usuário"></div></div></div></div><div id="empty-14" class="item-fila new"><div class="opcoes"><div class="arrow"></div><div class="check"></div></div><div class="dados"><div id="titulo" class="fila-column"><label class="hidden"><div style="float: left">Número</div><div class="ordenacao" value="PR"></div></label><div class="info"></div></div><div id="sgSetorAnterior" class="fila-column setor"><label><div style="float: left">Uni. enc.</div><div class="ordenacao" value="SE"></div></label><div class="info"></div></div><div id="sgSetorAtual" class="fila-column setor"><label><div style="float: left">Uni. atual</div><div class="ordenacao" value="SA"></div></label><div class="info"></div></div><div id="nmUsuarioRecebto" class="fila-column usuarioRecebto"><label><div style="float: left">Usr. Recebim.</div><div class="ordenacao" value="UR"></div></label><div class="info"></div><div class="truncate">...</div></div><div id="dtEncaminhamentoFmt" class="fila-column data"><label><div style="float: left">Encam.</div><div class="ordenacao" value="DE"></div></label><div class="info"></div></div><div id="dtPrazoFmt" class="fila-column dtPrazoFmt"><label><div style="float: left">Prazo enc.</div><div class="ordenacao" value="PE"></div></label><div class="info"></div></div><div id="deComplemento" class="fila-column "><label><div style="float: left">Detalhamento</div><div class="ordenacao" value="DA"></div></label><div class="info"></div><div class="truncate">...</div></div><div id="tags" class="fila-column tags"><label><div style="float: left">Status</div><div class="ordenacao" value="TAGS"></div></label><div class="info"></div></div><div id="snd"></div><div id="icons" class="fila-column"><label>&nbsp;</label><div class="icon restrito disabled" _title="Restrito"></div><div class="icon tramiSetor disabled" _title="Encaminhado para a unidade"></div><div class="icon tramiUsuario disabled" _title="Encaminhado para o usuário"></div></div></div></div><div id="empty-15" class="item-fila new"><div class="opcoes"><div class="arrow"></div><div class="check"></div></div><div class="dados"><div id="titulo" class="fila-column"><label class="hidden"><div style="float: left">Número</div><div class="ordenacao" value="PR"></div></label><div class="info"></div></div><div id="sgSetorAnterior" class="fila-column setor"><label><div style="float: left">Uni. enc.</div><div class="ordenacao" value="SE"></div></label><div class="info"></div></div><div id="sgSetorAtual" class="fila-column setor"><label><div style="float: left">Uni. atual</div><div class="ordenacao" value="SA"></div></label><div class="info"></div></div><div id="nmUsuarioRecebto" class="fila-column usuarioRecebto"><label><div style="float: left">Usr. Recebim.</div><div class="ordenacao" value="UR"></div></label><div class="info"></div><div class="truncate">...</div></div><div id="dtEncaminhamentoFmt" class="fila-column data"><label><div style="float: left">Encam.</div><div class="ordenacao" value="DE"></div></label><div class="info"></div></div><div id="dtPrazoFmt" class="fila-column dtPrazoFmt"><label><div style="float: left">Prazo enc.</div><div class="ordenacao" value="PE"></div></label><div class="info"></div></div><div id="deComplemento" class="fila-column "><label><div style="float: left">Detalhamento</div><div class="ordenacao" value="DA"></div></label><div class="info"></div><div class="truncate">...</div></div><div id="tags" class="fila-column tags"><label><div style="float: left">Status</div><div class="ordenacao" value="TAGS"></div></label><div class="info"></div></div><div id="snd"></div><div id="icons" class="fila-column"><label>&nbsp;</label><div class="icon restrito disabled" _title="Restrito"></div><div class="icon tramiSetor disabled" _title="Encaminhado para a unidade"></div><div class="icon tramiUsuario disabled" _title="Encaminhado para o usuário"></div></div></div></div><div id="empty-16" class="item-fila new"><div class="opcoes"><div class="arrow"></div><div class="check"></div></div><div class="dados"><div id="titulo" class="fila-column"><label class="hidden"><div style="float: left">Número</div><div class="ordenacao" value="PR"></div></label><div class="info"></div></div><div id="sgSetorAnterior" class="fila-column setor"><label><div style="float: left">Uni. enc.</div><div class="ordenacao" value="SE"></div></label><div class="info"></div></div><div id="sgSetorAtual" class="fila-column setor"><label><div style="float: left">Uni. atual</div><div class="ordenacao" value="SA"></div></label><div class="info"></div></div><div id="nmUsuarioRecebto" class="fila-column usuarioRecebto"><label><div style="float: left">Usr. Recebim.</div><div class="ordenacao" value="UR"></div></label><div class="info"></div><div class="truncate">...</div></div><div id="dtEncaminhamentoFmt" class="fila-column data"><label><div style="float: left">Encam.</div><div class="ordenacao" value="DE"></div></label><div class="info"></div></div><div id="dtPrazoFmt" class="fila-column dtPrazoFmt"><label><div style="float: left">Prazo enc.</div><div class="ordenacao" value="PE"></div></label><div class="info"></div></div><div id="deComplemento" class="fila-column "><label><div style="float: left">Detalhamento</div><div class="ordenacao" value="DA"></div></label><div class="info"></div><div class="truncate">...</div></div><div id="tags" class="fila-column tags"><label><div style="float: left">Status</div><div class="ordenacao" value="TAGS"></div></label><div class="info"></div></div><div id="snd"></div><div id="icons" class="fila-column"><label>&nbsp;</label><div class="icon restrito disabled" _title="Restrito"></div><div class="icon tramiSetor disabled" _title="Encaminhado para a unidade"></div><div class="icon tramiUsuario disabled" _title="Encaminhado para o usuário"></div></div></div></div><div id="empty-17" class="item-fila new"><div class="opcoes"><div class="arrow"></div><div class="check"></div></div><div class="dados"><div id="titulo" class="fila-column"><label class="hidden"><div style="float: left">Número</div><div class="ordenacao" value="PR"></div></label><div class="info"></div></div><div id="sgSetorAnterior" class="fila-column setor"><label><div style="float: left">Uni. enc.</div><div class="ordenacao" value="SE"></div></label><div class="info"></div></div><div id="sgSetorAtual" class="fila-column setor"><label><div style="float: left">Uni. atual</div><div class="ordenacao" value="SA"></div></label><div class="info"></div></div><div id="nmUsuarioRecebto" class="fila-column usuarioRecebto"><label><div style="float: left">Usr. Recebim.</div><div class="ordenacao" value="UR"></div></label><div class="info"></div><div class="truncate">...</div></div><div id="dtEncaminhamentoFmt" class="fila-column data"><label><div style="float: left">Encam.</div><div class="ordenacao" value="DE"></div></label><div class="info"></div></div><div id="dtPrazoFmt" class="fila-column dtPrazoFmt"><label><div style="float: left">Prazo enc.</div><div class="ordenacao" value="PE"></div></label><div class="info"></div></div><div id="deComplemento" class="fila-column "><label><div style="float: left">Detalhamento</div><div class="ordenacao" value="DA"></div></label><div class="info"></div><div class="truncate">...</div></div><div id="tags" class="fila-column tags"><label><div style="float: left">Status</div><div class="ordenacao" value="TAGS"></div></label><div class="info"></div></div><div id="snd"></div><div id="icons" class="fila-column"><label>&nbsp;</label><div class="icon restrito disabled" _title="Restrito"></div><div class="icon tramiSetor disabled" _title="Encaminhado para a unidade"></div><div class="icon tramiUsuario disabled" _title="Encaminhado para o usuário"></div></div></div></div><div id="empty-18" class="item-fila new"><div class="opcoes"><div class="arrow"></div><div class="check"></div></div><div class="dados"><div id="titulo" class="fila-column"><label class="hidden"><div style="float: left">Número</div><div class="ordenacao" value="PR"></div></label><div class="info"></div></div><div id="sgSetorAnterior" class="fila-column setor"><label><div style="float: left">Uni. enc.</div><div class="ordenacao" value="SE"></div></label><div class="info"></div></div><div id="sgSetorAtual" class="fila-column setor"><label><div style="float: left">Uni. atual</div><div class="ordenacao" value="SA"></div></label><div class="info"></div></div><div id="nmUsuarioRecebto" class="fila-column usuarioRecebto"><label><div style="float: left">Usr. Recebim.</div><div class="ordenacao" value="UR"></div></label><div class="info"></div><div class="truncate">...</div></div><div id="dtEncaminhamentoFmt" class="fila-column data"><label><div style="float: left">Encam.</div><div class="ordenacao" value="DE"></div></label><div class="info"></div></div><div id="dtPrazoFmt" class="fila-column dtPrazoFmt"><label><div style="float: left">Prazo enc.</div><div class="ordenacao" value="PE"></div></label><div class="info"></div></div><div id="deComplemento" class="fila-column "><label><div style="float: left">Detalhamento</div><div class="ordenacao" value="DA"></div></label><div class="info"></div><div class="truncate">...</div></div><div id="tags" class="fila-column tags"><label><div style="float: left">Status</div><div class="ordenacao" value="TAGS"></div></label><div class="info"></div></div><div id="snd"></div><div id="icons" class="fila-column"><label>&nbsp;</label><div class="icon restrito disabled" _title="Restrito"></div><div class="icon tramiSetor disabled" _title="Encaminhado para a unidade"></div><div class="icon tramiUsuario disabled" _title="Encaminhado para o usuário"></div></div></div></div><div id="empty-19" class="item-fila new"><div class="opcoes"><div class="arrow"></div><div class="check"></div></div><div class="dados"><div id="titulo" class="fila-column"><label class="hidden"><div style="float: left">Número</div><div class="ordenacao" value="PR"></div></label><div class="info"></div></div><div id="sgSetorAnterior" class="fila-column setor"><label><div style="float: left">Uni. enc.</div><div class="ordenacao" value="SE"></div></label><div class="info"></div></div><div id="sgSetorAtual" class="fila-column setor"><label><div style="float: left">Uni. atual</div><div class="ordenacao" value="SA"></div></label><div class="info"></div></div><div id="nmUsuarioRecebto" class="fila-column usuarioRecebto"><label><div style="float: left">Usr. Recebim.</div><div class="ordenacao" value="UR"></div></label><div class="info"></div><div class="truncate">...</div></div><div id="dtEncaminhamentoFmt" class="fila-column data"><label><div style="float: left">Encam.</div><div class="ordenacao" value="DE"></div></label><div class="info"></div></div><div id="dtPrazoFmt" class="fila-column dtPrazoFmt"><label><div style="float: left">Prazo enc.</div><div class="ordenacao" value="PE"></div></label><div class="info"></div></div><div id="deComplemento" class="fila-column "><label><div style="float: left">Detalhamento</div><div class="ordenacao" value="DA"></div></label><div class="info"></div><div class="truncate">...</div></div><div id="tags" class="fila-column tags"><label><div style="float: left">Status</div><div class="ordenacao" value="TAGS"></div></label><div class="info"></div></div><div id="snd"></div><div id="icons" class="fila-column"><label>&nbsp;</label><div class="icon restrito disabled" _title="Restrito"></div><div class="icon tramiSetor disabled" _title="Encaminhado para a unidade"></div><div class="icon tramiUsuario disabled" _title="Encaminhado para o usuário"></div></div></div></div><div id="empty-20" class="item-fila new"><div class="opcoes"><div class="arrow"></div><div class="check"></div></div><div class="dados"><div id="titulo" class="fila-column"><label class="hidden"><div style="float: left">Número</div><div class="ordenacao" value="PR"></div></label><div class="info"></div></div><div id="sgSetorAnterior" class="fila-column setor"><label><div style="float: left">Uni. enc.</div><div class="ordenacao" value="SE"></div></label><div class="info"></div></div><div id="sgSetorAtual" class="fila-column setor"><label><div style="float: left">Uni. atual</div><div class="ordenacao" value="SA"></div></label><div class="info"></div></div><div id="nmUsuarioRecebto" class="fila-column usuarioRecebto"><label><div style="float: left">Usr. Recebim.</div><div class="ordenacao" value="UR"></div></label><div class="info"></div><div class="truncate">...</div></div><div id="dtEncaminhamentoFmt" class="fila-column data"><label><div style="float: left">Encam.</div><div class="ordenacao" value="DE"></div></label><div class="info"></div></div><div id="dtPrazoFmt" class="fila-column dtPrazoFmt"><label><div style="float: left">Prazo enc.</div><div class="ordenacao" value="PE"></div></label><div class="info"></div></div><div id="deComplemento" class="fila-column "><label><div style="float: left">Detalhamento</div><div class="ordenacao" value="DA"></div></label><div class="info"></div><div class="truncate">...</div></div><div id="tags" class="fila-column tags"><label><div style="float: left">Status</div><div class="ordenacao" value="TAGS"></div></label><div class="info"></div></div><div id="snd"></div><div id="icons" class="fila-column"><label>&nbsp;</label><div class="icon restrito disabled" _title="Restrito"></div><div class="icon tramiSetor disabled" _title="Encaminhado para a unidade"></div><div class="icon tramiUsuario disabled" _title="Encaminhado para o usuário"></div></div></div></div><div id="empty-21" class="item-fila new"><div class="opcoes"><div class="arrow"></div><div class="check"></div></div><div class="dados"><div id="titulo" class="fila-column"><label class="hidden"><div style="float: left">Número</div><div class="ordenacao" value="PR"></div></label><div class="info"></div></div><div id="sgSetorAnterior" class="fila-column setor"><label><div style="float: left">Uni. enc.</div><div class="ordenacao" value="SE"></div></label><div class="info"></div></div><div id="sgSetorAtual" class="fila-column setor"><label><div style="float: left">Uni. atual</div><div class="ordenacao" value="SA"></div></label><div class="info"></div></div><div id="nmUsuarioRecebto" class="fila-column usuarioRecebto"><label><div style="float: left">Usr. Recebim.</div><div class="ordenacao" value="UR"></div></label><div class="info"></div><div class="truncate">...</div></div><div id="dtEncaminhamentoFmt" class="fila-column data"><label><div style="float: left">Encam.</div><div class="ordenacao" value="DE"></div></label><div class="info"></div></div><div id="dtPrazoFmt" class="fila-column dtPrazoFmt"><label><div style="float: left">Prazo enc.</div><div class="ordenacao" value="PE"></div></label><div class="info"></div></div><div id="deComplemento" class="fila-column "><label><div style="float: left">Detalhamento</div><div class="ordenacao" value="DA"></div></label><div class="info"></div><div class="truncate">...</div></div><div id="tags" class="fila-column tags"><label><div style="float: left">Status</div><div class="ordenacao" value="TAGS"></div></label><div class="info"></div></div><div id="snd"></div><div id="icons" class="fila-column"><label>&nbsp;</label><div class="icon restrito disabled" _title="Restrito"></div><div class="icon tramiSetor disabled" _title="Encaminhado para a unidade"></div><div class="icon tramiUsuario disabled" _title="Encaminhado para o usuário"></div></div></div></div><div id="empty-22" class="item-fila new"><div class="opcoes"><div class="arrow"></div><div class="check"></div></div><div class="dados"><div id="titulo" class="fila-column"><label class="hidden"><div style="float: left">Número</div><div class="ordenacao" value="PR"></div></label><div class="info"></div></div><div id="sgSetorAnterior" class="fila-column setor"><label><div style="float: left">Uni. enc.</div><div class="ordenacao" value="SE"></div></label><div class="info"></div></div><div id="sgSetorAtual" class="fila-column setor"><label><div style="float: left">Uni. atual</div><div class="ordenacao" value="SA"></div></label><div class="info"></div></div><div id="nmUsuarioRecebto" class="fila-column usuarioRecebto"><label><div style="float: left">Usr. Recebim.</div><div class="ordenacao" value="UR"></div></label><div class="info"></div><div class="truncate">...</div></div><div id="dtEncaminhamentoFmt" class="fila-column data"><label><div style="float: left">Encam.</div><div class="ordenacao" value="DE"></div></label><div class="info"></div></div><div id="dtPrazoFmt" class="fila-column dtPrazoFmt"><label><div style="float: left">Prazo enc.</div><div class="ordenacao" value="PE"></div></label><div class="info"></div></div><div id="deComplemento" class="fila-column "><label><div style="float: left">Detalhamento</div><div class="ordenacao" value="DA"></div></label><div class="info"></div><div class="truncate">...</div></div><div id="tags" class="fila-column tags"><label><div style="float: left">Status</div><div class="ordenacao" value="TAGS"></div></label><div class="info"></div></div><div id="snd"></div><div id="icons" class="fila-column"><label>&nbsp;</label><div class="icon restrito disabled" _title="Restrito"></div><div class="icon tramiSetor disabled" _title="Encaminhado para a unidade"></div><div class="icon tramiUsuario disabled" _title="Encaminhado para o usuário"></div></div></div></div><div id="empty-23" class="item-fila new"><div class="opcoes"><div class="arrow"></div><div class="check"></div></div><div class="dados"><div id="titulo" class="fila-column"><label class="hidden"><div style="float: left">Número</div><div class="ordenacao" value="PR"></div></label><div class="info"></div></div><div id="sgSetorAnterior" class="fila-column setor"><label><div style="float: left">Uni. enc.</div><div class="ordenacao" value="SE"></div></label><div class="info"></div></div><div id="sgSetorAtual" class="fila-column setor"><label><div style="float: left">Uni. atual</div><div class="ordenacao" value="SA"></div></label><div class="info"></div></div><div id="nmUsuarioRecebto" class="fila-column usuarioRecebto"><label><div style="float: left">Usr. Recebim.</div><div class="ordenacao" value="UR"></div></label><div class="info"></div><div class="truncate">...</div></div><div id="dtEncaminhamentoFmt" class="fila-column data"><label><div style="float: left">Encam.</div><div class="ordenacao" value="DE"></div></label><div class="info"></div></div><div id="dtPrazoFmt" class="fila-column dtPrazoFmt"><label><div style="float: left">Prazo enc.</div><div class="ordenacao" value="PE"></div></label><div class="info"></div></div><div id="deComplemento" class="fila-column "><label><div style="float: left">Detalhamento</div><div class="ordenacao" value="DA"></div></label><div class="info"></div><div class="truncate">...</div></div><div id="tags" class="fila-column tags"><label><div style="float: left">Status</div><div class="ordenacao" value="TAGS"></div></label><div class="info"></div></div><div id="snd"></div><div id="icons" class="fila-column"><label>&nbsp;</label><div class="icon restrito disabled" _title="Restrito"></div><div class="icon tramiSetor disabled" _title="Encaminhado para a unidade"></div><div class="icon tramiUsuario disabled" _title="Encaminhado para o usuário"></div></div></div></div><div id="empty-model" class="item-fila hidden"><div class="opcoes"><div class="arrow"></div><div class="check"></div></div><div class="dados"><div id="titulo" class="fila-column"><label class="hidden"><div style="float: left">Número</div><div class="ordenacao" value="PR"></div></label><div class="info"></div></div><div id="sgSetorAnterior" class="fila-column setor"><label><div style="float: left">Uni. enc.</div><div class="ordenacao" value="SE"></div></label><div class="info"></div></div><div id="sgSetorAtual" class="fila-column setor"><label><div style="float: left">Uni. atual</div><div class="ordenacao" value="SA"></div></label><div class="info"></div></div><div id="nmUsuarioRecebto" class="fila-column usuarioRecebto"><label><div style="float: left">Usr. Recebim.</div><div class="ordenacao" value="UR"></div></label><div class="info"></div><div class="truncate">...</div></div><div id="dtEncaminhamentoFmt" class="fila-column data"><label><div style="float: left">Encam.</div><div class="ordenacao" value="DE"></div></label><div class="info"></div></div><div id="dtPrazoFmt" class="fila-column dtPrazoFmt"><label><div style="float: left">Prazo enc.</div><div class="ordenacao" value="PE"></div></label><div class="info"></div></div><div id="deComplemento" class="fila-column "><label><div style="float: left">Detalhamento</div><div class="ordenacao" value="DA"></div></label><div class="info"></div><div class="truncate">...</div></div><div id="tags" class="fila-column tags"><label><div style="float: left">Status</div><div class="ordenacao" value="TAGS"></div></label><div class="info"></div></div><div id="snd"></div><div id="icons" class="fila-column"><label>&nbsp;</label><div class="icon restrito disabled" _title="Restrito"></div><div class="icon tramiSetor disabled" _title="Encaminhado para a unidade"></div><div class="icon tramiUsuario disabled" _title="Encaminhado para o usuário"></div></div></div></div></div></div><div id="facets-area"><div class="header"><ul><li class="hide" title="Esconder filtros."><a></a></li></ul><span>Filtros</span></div><div class="filters"></div></div><div id="facets-hidden" title="Exibir filtros."><ul><li class="show"><a></a></li></ul></div>
+<script type="text/javascript">var filaHandler = new FilaHandler('table');filaHandler.itens = {'1_2026_9949_1-1':{"deComplemento":"[Presencial] CANCELAMENTO DE DESPESAS FUNERÁRIAS\n\nSolicitação de cancelamento das despesas com o funeral de sua mãe Sra Mariana Alves Barbosa","nuProcesso":9949,"dtEncaminhamentoFmt":"20/03/2026","sgOrgaoSetorOrigem":"SMAS-511","cdSistema":64,"sgSetorAnterior":"SMAS-511","titulo":"PMDI 00009949/2026 Vol. 1","flRecusado":"0","segDetalhamento":1,"nuVolume":1,"qtPagina":0,"cdSetorAtual":178,"nuProcessoOficial":9949,"vlUrgencia":0,"flBloqueiaTrami":"00000","tramitacaoBloqueada":false,"sgSetorAbertura":"SMAS-511","correspondencia":false,"deAssunto":"Cancelamento de Despesas Funerárias","cdGrupoAssunto":24,"key":"1_2026_9949_1-1","cdAssunto":24,"nuAno":"2026","digital":true,"flPrazoProcesso":"N","flTipoProcesso":"D","flParecerTecnico":"N","qtTramitacoesSetor":1,"cdSistemaPrincipal":64,"flPecaFisica":"N","flSemRestricao":"S","cdSetorAnterior":279,"sgSetorAtual":"SF-2","size":1,"dtEncaminhamento":"2026-03-20","numeroFormatado":"PMDI 00009949/2026","cdOrgaoSetor":1,"flProcedencia":"E"},'1_2026_9923_1-1':{"deComplemento":"[Presencial] CANCELAMENTO DE DESPESAS FUNERÁRIAS\n\nSolicitação de cancelamento das despesas com o funeral de seu pai Sr.Cicero Donizete Augusto.","nuProcesso":9923,"dtEncaminhamentoFmt":"20/03/2026","sgOrgaoSetorOrigem":"SMAS-511","cdSistema":64,"sgSetorAnterior":"SMAS-511","titulo":"PMDI 00009923/2026 Vol. 1","flRecusado":"0","segDetalhamento":1,"nuVolume":1,"qtPagina":0,"cdSetorAtual":178,"nuProcessoOficial":9923,"vlUrgencia":0,"flBloqueiaTrami":"00000","tramitacaoBloqueada":false,"sgSetorAbertura":"SMAS-511","correspondencia":false,"deAssunto":"Cancelamento de Despesas Funerárias","cdGrupoAssunto":24,"key":"1_2026_9923_1-1","cdAssunto":24,"nuAno":"2026","digital":true,"flPrazoProcesso":"N","flTipoProcesso":"D","flParecerTecnico":"N","qtTramitacoesSetor":1,"cdSistemaPrincipal":64,"flPecaFisica":"N","flSemRestricao":"S","cdSetorAnterior":279,"sgSetorAtual":"SF-2","size":1,"dtEncaminhamento":"2026-03-20","numeroFormatado":"PMDI 00009923/2026","cdOrgaoSetor":1,"flProcedencia":"E"},'1_2026_9816_1-1':{"deComplemento":"[Presencial] CANCELAMENTO DE DESPESAS FUNERÁRIAS\n\nSolicitação de cancelamento das despesas com o funeral de sua filha Sra. Beatriz Oliveira do Rosario.","nuProcesso":9816,"dtEncaminhamentoFmt":"20/03/2026","sgOrgaoSetorOrigem":"SMAS-511","cdSistema":64,"sgSetorAnterior":"SMAS-511","titulo":"PMDI 00009816/2026 Vol. 1","flRecusado":"0","segDetalhamento":1,"nuVolume":1,"qtPagina":0,"cdSetorAtual":178,"nuProcessoOficial":9816,"vlUrgencia":0,"flBloqueiaTrami":"00000","tramitacaoBloqueada":false,"sgSetorAbertura":"SMAS-511","correspondencia":false,"deAssunto":"Cancelamento de Despesas Funerárias","cdGrupoAssunto":24,"key":"1_2026_9816_1-1","cdAssunto":24,"nuAno":"2026","digital":true,"flPrazoProcesso":"N","flTipoProcesso":"D","flParecerTecnico":"N","qtTramitacoesSetor":1,"cdSistemaPrincipal":64,"flPecaFisica":"N","flSemRestricao":"S","cdSetorAnterior":279,"sgSetorAtual":"SF-2","size":1,"dtEncaminhamento":"2026-03-20","numeroFormatado":"PMDI 00009816/2026","cdOrgaoSetor":1,"flProcedencia":"E"},'1_2026_9788_1-1':{"deComplemento":"[Presencial] CANCELAMENTO DE DESPESAS FUNERÁRIAS\n\nSolicitação de cancelamento da dívida com o funeral de seu irmão Sr. Jose Cassiano de Lima","nuProcesso":9788,"dtEncaminhamentoFmt":"20/03/2026","sgOrgaoSetorOrigem":"SMAS-511","cdSistema":64,"sgSetorAnterior":"SMAS-511","titulo":"PMDI 00009788/2026 Vol. 1","flRecusado":"0","segDetalhamento":1,"nuVolume":1,"qtPagina":0,"cdSetorAtual":178,"nuProcessoOficial":9788,"vlUrgencia":0,"flBloqueiaTrami":"00000","tramitacaoBloqueada":false,"sgSetorAbertura":"SMAS-511","correspondencia":false,"deAssunto":"Cancelamento de Despesas Funerárias","cdGrupoAssunto":24,"key":"1_2026_9788_1-1","cdAssunto":24,"nuAno":"2026","digital":true,"flPrazoProcesso":"N","flTipoProcesso":"D","flParecerTecnico":"N","qtTramitacoesSetor":1,"cdSistemaPrincipal":64,"flPecaFisica":"N","flSemRestricao":"S","cdSetorAnterior":279,"sgSetorAtual":"SF-2","size":1,"dtEncaminhamento":"2026-03-20","numeroFormatado":"PMDI 00009788/2026","cdOrgaoSetor":1,"flProcedencia":"E"},'1_2026_9771_1-1':{"deComplemento":"[Presencial] CANCELAMENTO DE DESPESAS FUNERÁRIAS\n\nSolicitação de cancelemento das depesas com o  funeral de sua mãe Sra. Maria Euridice da Silva.","nuProcesso":9771,"dtEncaminhamentoFmt":"20/03/2026","sgOrgaoSetorOrigem":"SMAS-511","cdSistema":64,"sgSetorAnterior":"SMAS-511","titulo":"PMDI 00009771/2026 Vol. 1","flRecusado":"0","segDetalhamento":1,"nuVolume":1,"qtPagina":0,"cdSetorAtual":178,"nuProcessoOficial":9771,"vlUrgencia":0,"flBloqueiaTrami":"00000","tramitacaoBloqueada":false,"sgSetorAbertura":"SMAS-511","correspondencia":false,"deAssunto":"Cancelamento de Despesas Funerárias","cdGrupoAssunto":24,"key":"1_2026_9771_1-1","cdAssunto":24,"nuAno":"2026","digital":true,"flPrazoProcesso":"N","flTipoProcesso":"D","flParecerTecnico":"N","qtTramitacoesSetor":1,"cdSistemaPrincipal":64,"flPecaFisica":"N","flSemRestricao":"S","cdSetorAnterior":279,"sgSetorAtual":"SF-2","size":1,"dtEncaminhamento":"2026-03-20","numeroFormatado":"PMDI 00009771/2026","cdOrgaoSetor":1,"flProcedencia":"E"},'1_2026_6248_1-1':{"deComplemento":"[Portal] RESTITUIÇÃO DE IPVA - REGISTRO OU TRANSFERÊNCIA DE VEÍCULO PARA DIADEMA  \nReferente a Transferência de Veículo para Diadema \n\nSolicito a restituição do IPVA referente ao CID, no valor de 25% sobre o total pago.","nuProcesso":6248,"dtEncaminhamentoFmt":"20/03/2026","sgOrgaoSetorOrigem":"SF-22","cdSistema":64,"sgSetorAnterior":"SF-22","titulo":"PMDI 00006248/2026 Vol. 1","flRecusado":"0","segDetalhamento":1,"nuVolume":1,"qtPagina":0,"cdSetorAtual":178,"nuProcessoOficial":6248,"vlUrgencia":0,"flBloqueiaTrami":"00000","tramitacaoBloqueada":false,"sgSetorAbertura":"SF-22","correspondencia":false,"deAssunto":"Restituição de IPVA - Registro ou Transferência de Veículo para Diadema","cdGrupoAssunto":176,"key":"1_2026_6248_1-1","cdAssunto":176,"nuAno":"2026","digital":true,"flPrazoProcesso":"N","flTipoProcesso":"D","flParecerTecnico":"N","qtTramitacoesSetor":1,"cdSistemaPrincipal":64,"flPecaFisica":"N","flSemRestricao":"S","cdSetorAnterior":264,"sgSetorAtual":"SF-2","size":1,"dtEncaminhamento":"2026-03-20","numeroFormatado":"PMDI 00006248/2026","cdOrgaoSetor":1,"flProcedencia":"E"},'1_2026_4370_1-1':{"deComplemento":"[Portal] CANCELAMENTO DE DÉBITOS (IMÓVEL, CMC OU CONTRIBUINTE GERAL) \n Inscrição Imobiliária: 93014\n\nNa abertura informamos à Prefeitura que a empresa não estaria licenciando nenhuma atividade que necessitasse da vigilância sanitária, na época foi encaminhado o CLI para comprovação do mesmo, com emissão de 16/08/2023","nuProcesso":4370,"dtEncaminhamentoFmt":"18/03/2026","sgOrgaoSetorOrigem":"SF-312","cdSistema":64,"sgSetorAnterior":"SS-412","titulo":"PMDI 00004370/2026 Vol. 1","flRecusado":"1","segDetalhamento":1,"nuVolume":1,"qtPagina":0,"cdSetorAtual":178,"nuProcessoOficial":4370,"vlUrgencia":0,"flBloqueiaTrami":"00000","tramitacaoBloqueada":false,"sgSetorAbertura":"SF-312","correspondencia":false,"deAssunto":"Cancelamento de Débitos (Imóvel, CMC ou Contribuinte Geral)","cdGrupoAssunto":212,"key":"1_2026_4370_1-1","cdAssunto":212,"nuAno":"2026","digital":true,"flPrazoProcesso":"N","flTipoProcesso":"D","flParecerTecnico":"N","qtTramitacoesSetor":2,"cdSistemaPrincipal":64,"flPecaFisica":"N","flSemRestricao":"S","cdSetorAnterior":309,"sgSetorAtual":"SF-2","size":1,"dtEncaminhamento":"2026-03-18","numeroFormatado":"PMDI 00004370/2026","cdOrgaoSetor":1,"flProcedencia":"E"},'1_2026_4148_1-1':{"deComplemento":"[Presencial] RECURSO DE AUTO DE INFRAÇÃO OU IMPUGNAÇÃO DE LANÇAMENTO\r\nInscrição Imobiliária (IPTU): 3100601100\r\nNúmero do Auto de Infração: 2927/23\r\nNúmero do Processo: PMDI 26719/2023\r\n\r\nRECURSO DE NOTIFICAÇÃO","nuProcesso":4148,"dtEncaminhamentoFmt":"05/03/2026","cdUsuarioRecebto":"VANESSAF.SILVA","sgOrgaoSetorOrigem":"SF-312","cdSistema":64,"sgSetorAnterior":"SF-22","titulo":"PMDI 00004148/2026 Vol. 1","flRecusado":"0","segDetalhamento":1,"nuVolume":1,"qtPagina":0,"cdSetorAtual":178,"nuProcessoOficial":4148,"vlUrgencia":0,"flBloqueiaTrami":"00000","tramitacaoBloqueada":false,"correspondencia":false,"deAssunto":"Recurso de Auto de Infração ou Impugnação de Lançamento","cdGrupoAssunto":215,"key":"1_2026_4148_1-1","cdAssunto":215,"nuAno":"2026","digital":true,"flPrazoProcesso":"N","flTipoProcesso":"D","flParecerTecnico":"N","qtTramitacoesSetor":1,"cdSistemaPrincipal":64,"flPecaFisica":"N","flSemRestricao":"S","nmUsuarioRecebto":"Vanessa Ferreira Da Silva","cdSetorAnterior":264,"dtRecebimento":"2026-03-05","sgSetorAtual":"SF-2","size":1,"dtEncaminhamento":"2026-03-05","numeroFormatado":"PMDI 00004148/2026","cdOrgaoSetor":1,"flProcedencia":"E"},'1_2026_3365_1-1':{"deComplemento":"[Presencial] RECURSO DE AUTO DE INFRAÇÃO OU IMPUGNAÇÃO DE LANÇAMENTO\nInscrição Imobiliária (IPTU): 3301406100\nNúmero do Auto de Infração: 3045/23\nNúmero do Processo: 28701/2023\n\nRECURSO DE NOTIFICAÇÃO","nuProcesso":3365,"dtEncaminhamentoFmt":"27/02/2026","cdUsuarioRecebto":"VANESSAF.SILVA","sgOrgaoSetorOrigem":"SF-312","cdSistema":64,"sgSetorAnterior":"SF-22","titulo":"PMDI 00003365/2026 Vol. 1","flRecusado":"0","segDetalhamento":1,"nuVolume":1,"qtPagina":0,"cdSetorAtual":178,"nuProcessoOficial":3365,"vlUrgencia":0,"flBloqueiaTrami":"00000","tramitacaoBloqueada":false,"sgSetorAbertura":"SF-312","correspondencia":false,"deAssunto":"Recurso de Auto de Infração ou Impugnação de Lançamento","cdGrupoAssunto":215,"key":"1_2026_3365_1-1","cdAssunto":215,"nuAno":"2026","digital":true,"flPrazoProcesso":"N","flTipoProcesso":"D","flParecerTecnico":"N","qtTramitacoesSetor":1,"cdSistemaPrincipal":64,"flPecaFisica":"N","flSemRestricao":"S","nmUsuarioRecebto":"Vanessa Ferreira Da Silva","cdSetorAnterior":264,"dtRecebimento":"2026-02-27","sgSetorAtual":"SF-2","size":1,"dtEncaminhamento":"2026-02-27","numeroFormatado":"PMDI 00003365/2026","cdOrgaoSetor":1,"flProcedencia":"E"},'1_2026_2737_1-1':{"deComplemento":"[PI] PROCEDIMENTO INTERNO \nSolicito a abertura de procedimento interno para acompanhamento da taxa de permissão de uso do solo.","nuProcesso":2737,"dtEncaminhamentoFmt":"21/01/2026","cdUsuarioRecebto":"SISTEMA","sgOrgaoSetorOrigem":"SF-312","cdSistema":64,"sgSetorAnterior":"DIGITAL","titulo":"PMDI 00002737/2026 Vol. 1","flRecusado":"0","segDetalhamento":1,"nuVolume":1,"qtPagina":0,"cdSetorAtual":178,"nuProcessoOficial":2737,"vlUrgencia":0,"flBloqueiaTrami":"00000","tramitacaoBloqueada":false,"sgSetorAbertura":"SF-312","correspondencia":false,"deAssunto":"Procedimento Interno","cdGrupoAssunto":285,"key":"1_2026_2737_1-1","cdAssunto":285,"nuAno":"2026","digital":true,"flPrazoProcesso":"N","flTipoProcesso":"D","flParecerTecnico":"N","qtTramitacoesSetor":1,"cdSistemaPrincipal":64,"flPecaFisica":"N","flSemRestricao":"S","nmUsuarioRecebto":"Usuário do sistema","cdSetorAnterior":29,"dtRecebimento":"2026-01-21","sgSetorAtual":"SF-2","size":1,"dtEncaminhamento":"2026-01-21","numeroFormatado":"PMDI 00002737/2026","cdOrgaoSetor":1,"flProcedencia":"I"},'1_2026_687_1-1':{"deComplemento":"[PI] EXECUÇÃO FISCAL \n\nPREFEITURA MUNICIPAL DE DIADEMA X Edeverson Lima Carvalho Me\n\nCNJ:1507100-41.2017.8.26.0161\n\nINSCRIÇÃO: 28791","nuProcesso":687,"dtEncaminhamentoFmt":"18/03/2026","sgOrgaoSetorOrigem":"SAJ-11","cdSistema":64,"sgSetorAnterior":"SF-22","titulo":"PMDI 00000687/2026 Vol. 1","flRecusado":"0","segDetalhamento":1,"nuVolume":1,"qtPagina":0,"cdSetorAtual":178,"nuProcessoOficial":687,"vlUrgencia":0,"flBloqueiaTrami":"00000","tramitacaoBloqueada":false,"sgSetorAbertura":"SAJ-11","correspondencia":false,"deAssunto":"Execução Fiscal","cdGrupoAssunto":2884,"key":"1_2026_687_1-1","cdAssunto":2884,"nuAno":"2026","digital":true,"flPrazoProcesso":"N","flTipoProcesso":"D","flParecerTecnico":"N","qtTramitacoesSetor":1,"cdSistemaPrincipal":64,"flPecaFisica":"N","flSemRestricao":"S","cdSetorAnterior":264,"sgSetorAtual":"SF-2","size":1,"dtEncaminhamento":"2026-03-18","numeroFormatado":"PMDI 00000687/2026","cdOrgaoSetor":1,"flProcedencia":"I"},'1_2025_35923_1-1':{"deComplemento":"[Presencial] RECURSO DE AUTO DE INFRAÇÃO OU IMPUGNAÇÃO DE LANÇAMENTO\nInscrição Imobiliária (IPTU): 3504801800\nNúmero do Auto de Infração: 4416/2023\nNúmero do Processo: 28645/2023\n\nCONFORME REQUERIMENTO.","nuProcesso":35923,"dtEncaminhamentoFmt":"27/01/2026","cdUsuarioRecebto":"GABRIEL.GOMES","sgOrgaoSetorOrigem":"SF-312","cdSistema":64,"sgSetorAnterior":"SF-22","titulo":"PMDI 00035923/2025 Vol. 1","flRecusado":"0","segDetalhamento":1,"nuVolume":1,"qtPagina":0,"cdSetorAtual":178,"nuProcessoOficial":35923,"vlUrgencia":0,"flBloqueiaTrami":"00000","tramitacaoBloqueada":false,"sgSetorAbertura":"SF-312","correspondencia":false,"deAssunto":"Recurso de Auto de Infração ou Impugnação de Lançamento","cdGrupoAssunto":215,"key":"1_2025_35923_1-1","cdAssunto":215,"nuAno":"2025","digital":true,"flPrazoProcesso":"N","flTipoProcesso":"D","flParecerTecnico":"N","qtTramitacoesSetor":1,"cdSistemaPrincipal":64,"flPecaFisica":"N","flSemRestricao":"S","nmUsuarioRecebto":"GABRIEL ELUD ROCHA DA SILVA GOMES","cdSetorAnterior":264,"dtRecebimento":"2026-01-27","sgSetorAtual":"SF-2","cdUsuario":"GABRIEL.GOMES","size":1,"dtEncaminhamento":"2026-01-27","numeroFormatado":"PMDI 00035923/2025","cdOrgaoSetor":1,"flProcedencia":"E"},'1_2025_35434_1-1':{"deComplemento":"[Presencial] RECURSO DE AUTO DE INFRAÇÃO OU IMPUGNAÇÃO DE LANÇAMENTO\r\nInscrição Imobiliária (IPTU): 5002708900\r\nNúmero do Auto de Infração: 29389/2023\r\nNúmero do Processo: PMDI 26488/2023\r\n\r\nCONFORME REQUERIMENTO ANEXO SOLICITA REVISÃO DO VALOR COBRADO REFERENTE AO ISS CONSTRUÇÃO CIVIL PMDI 26488/2023.","nuProcesso":35434,"dtEncaminhamentoFmt":"27/01/2026","cdUsuarioRecebto":"GABRIEL.GOMES","sgOrgaoSetorOrigem":"SF-312","cdSistema":64,"sgSetorAnterior":"SF-22","titulo":"PMDI 00035434/2025 Vol. 1","flRecusado":"0","segDetalhamento":1,"nuVolume":1,"qtPagina":0,"cdSetorAtual":178,"nuProcessoOficial":35434,"vlUrgencia":0,"flBloqueiaTrami":"00000","tramitacaoBloqueada":false,"correspondencia":false,"deAssunto":"Recurso de Auto de Infração ou Impugnação de Lançamento","cdGrupoAssunto":215,"key":"1_2025_35434_1-1","cdAssunto":215,"nuAno":"2025","digital":true,"flPrazoProcesso":"N","flTipoProcesso":"D","flParecerTecnico":"N","qtTramitacoesSetor":1,"cdSistemaPrincipal":64,"flPecaFisica":"N","flSemRestricao":"S","nmUsuarioRecebto":"GABRIEL ELUD ROCHA DA SILVA GOMES","cdSetorAnterior":264,"dtRecebimento":"2026-01-27","sgSetorAtual":"SF-2","cdUsuario":"GABRIEL.GOMES","size":1,"dtEncaminhamento":"2026-01-27","numeroFormatado":"PMDI 00035434/2025","cdOrgaoSetor":1,"flProcedencia":"E"},'1_2025_35254_1-1':{"deComplemento":"[Presencial] CANCELAMENTO DE DÉBITOS (IMÓVEL, CMC OU CONTRIBUINTE GERAL)  \n Número da Inscrição: 3504602900\n\nCANCELAMENTO DE DÉBITOS (IMÓVEL)  ISS CIVIL","nuProcesso":35254,"dtEncaminhamentoFmt":"27/01/2026","cdUsuarioRecebto":"GABRIEL.GOMES","sgOrgaoSetorOrigem":"SF-312","cdSistema":64,"sgSetorAnterior":"SF-22","titulo":"PMDI 00035254/2025 Vol. 1","flRecusado":"0","segDetalhamento":1,"nuVolume":1,"qtPagina":0,"cdSetorAtual":178,"nuProcessoOficial":35254,"vlUrgencia":0,"flBloqueiaTrami":"00000","tramitacaoBloqueada":false,"sgSetorAbertura":"SF-312","correspondencia":false,"deAssunto":"Cancelamento de Débitos (Imóvel, CMC ou Contribuinte Geral)","cdGrupoAssunto":212,"key":"1_2025_35254_1-1","cdAssunto":212,"nuAno":"2025","digital":true,"flPrazoProcesso":"N","flTipoProcesso":"D","flParecerTecnico":"N","qtTramitacoesSetor":1,"cdSistemaPrincipal":64,"flPecaFisica":"N","flSemRestricao":"S","nmUsuarioRecebto":"GABRIEL ELUD ROCHA DA SILVA GOMES","cdSetorAnterior":264,"dtRecebimento":"2026-01-27","sgSetorAtual":"SF-2","cdUsuario":"GABRIEL.GOMES","size":1,"dtEncaminhamento":"2026-01-27","numeroFormatado":"PMDI 00035254/2025","cdOrgaoSetor":1,"flProcedencia":"E"},'1_2025_33060_1-1':{"deComplemento":"[PI] PROCEDIMENTO INTERNO \nSolicito abertura de procedimento interno para acompanhamento da dívida ativa do município.","nuProcesso":33060,"dtEncaminhamentoFmt":"18/11/2025","cdUsuarioRecebto":"SISTEMA","sgOrgaoSetorOrigem":"SF-312","cdSistema":64,"sgSetorAnterior":"DIGITAL","titulo":"PMDI 00033060/2025 Vol. 1","flRecusado":"0","segDetalhamento":1,"nuVolume":1,"qtPagina":0,"cdSetorAtual":178,"nuProcessoOficial":33060,"vlUrgencia":0,"flBloqueiaTrami":"00000","tramitacaoBloqueada":false,"sgSetorAbertura":"SF-312","correspondencia":false,"deAssunto":"Procedimento Interno","cdGrupoAssunto":285,"key":"1_2025_33060_1-1","cdAssunto":285,"nuAno":"2025","digital":true,"flPrazoProcesso":"N","flTipoProcesso":"D","flParecerTecnico":"N","qtTramitacoesSetor":1,"cdSistemaPrincipal":64,"flPecaFisica":"N","flSemRestricao":"S","nmUsuarioRecebto":"Usuário do sistema","cdSetorAnterior":29,"dtRecebimento":"2025-11-18","sgSetorAtual":"SF-2","size":1,"dtEncaminhamento":"2025-11-18","numeroFormatado":"PMDI 00033060/2025","cdOrgaoSetor":1,"flProcedencia":"I"},'1_2025_19871_1-1':{"deComplemento":"[PI] PROCEDIMENTO INTERNO \nSolicito abertura de processo para a analise dos débitos suspenso no sistema e-ágata, acompanhamento de tratativas quanto ao levantamento de suspensão dos referidos débitos e providencias dos setores responsáveis pelo pedido de suspensão","nuProcesso":19871,"dtEncaminhamentoFmt":"22/07/2025","cdUsuarioRecebto":"SISTEMA","sgOrgaoSetorOrigem":"SF-312","cdSistema":64,"sgSetorAnterior":"DIGITAL","titulo":"PMDI 00019871/2025 Vol. 1","flRecusado":"0","segDetalhamento":1,"nuVolume":1,"qtPagina":0,"cdSetorAtual":178,"nuProcessoOficial":19871,"vlUrgencia":0,"flBloqueiaTrami":"00000","tramitacaoBloqueada":false,"sgSetorAbertura":"SF-312","correspondencia":false,"deAssunto":"Procedimento Interno","cdGrupoAssunto":285,"key":"1_2025_19871_1-1","cdAssunto":285,"nuAno":"2025","digital":true,"flPrazoProcesso":"N","flTipoProcesso":"D","flParecerTecnico":"N","qtTramitacoesSetor":1,"cdSistemaPrincipal":64,"flPecaFisica":"N","flSemRestricao":"S","nmUsuarioRecebto":"Usuário do sistema","cdSetorAnterior":29,"dtRecebimento":"2025-07-22","sgSetorAtual":"SF-2","size":1,"dtEncaminhamento":"2025-07-22","numeroFormatado":"PMDI 00019871/2025","cdOrgaoSetor":1,"flProcedencia":"I"},'1_2025_19840_1-1':{"deComplemento":"[Presencial] RECURSO DE AUTO DE INFRAÇÃO OU IMPUGNAÇÃO DE LANÇAMENTO\nInscrição Imobiliária (IPTU): 5001218100\nNúmero do Auto de Infração: OF 891/2025\nNúmero do Processo: PMDI 37779/2023\n\nRECURSO DE AUTO DE INFRAÇÃO OU IMPUGNAÇÃO DE LANÇAMENTO - ISSQN CIVIL","nuProcesso":19840,"dtEncaminhamentoFmt":"27/01/2026","cdUsuarioRecebto":"JANAINA.MACEDO","sgOrgaoSetorOrigem":"SF-312","cdSistema":64,"sgSetorAnterior":"SF-22","titulo":"PMDI 00019840/2025 Vol. 1","flRecusado":"0","segDetalhamento":1,"nuVolume":1,"qtPagina":0,"cdSetorAtual":178,"nuProcessoOficial":19840,"vlUrgencia":0,"flBloqueiaTrami":"00000","tramitacaoBloqueada":false,"sgSetorAbertura":"SF-312","correspondencia":false,"deAssunto":"Recurso de Auto de Infração ou Impugnação de Lançamento","cdGrupoAssunto":215,"key":"1_2025_19840_1-1","cdAssunto":215,"nuAno":"2025","digital":true,"flPrazoProcesso":"N","flTipoProcesso":"D","flParecerTecnico":"N","qtTramitacoesSetor":1,"cdSistemaPrincipal":64,"flPecaFisica":"N","flSemRestricao":"S","nmUsuarioRecebto":"Janaina de Cassia Santos de Macedo","cdSetorAnterior":264,"tags":"<div class=\"div-tag-AVISO\"><span class=\"span-tag-AVISO\">Assinatura pendente<\/span><\/div>","dtRecebimento":"2026-01-30","sgSetorAtual":"SF-2","size":1,"dtEncaminhamento":"2026-01-27","numeroFormatado":"PMDI 00019840/2025","cdOrgaoSetor":1,"flProcedencia":"E","deJsonTag":"[{\"tipo\":\"AVISO\",\"texto\":\"Assinatura pendente\"}]"},'1_2025_19782_1-1':{"deComplemento":"[Presencial] RECURSO DE AUTO DE INFRAÇÃO OU IMPUGNAÇÃO DE LANÇAMENTO\nInscrição Imobiliária (IPTU): 5001404300\nNúmero do Auto de Infração: OF911/2025\nNúmero do Processo: PMDI /202337777\n\nRECURSO DE AUTO DE INFRAÇÃO OU IMPUGNAÇÃO DE LANÇAMENTO - ISS CIV","nuProcesso":19782,"dtEncaminhamentoFmt":"27/01/2026","cdUsuarioRecebto":"GABRIEL.GOMES","sgOrgaoSetorOrigem":"SF-312","cdSistema":64,"sgSetorAnterior":"SF-22","titulo":"PMDI 00019782/2025 Vol. 1","flRecusado":"0","segDetalhamento":1,"nuVolume":1,"qtPagina":0,"cdSetorAtual":178,"nuProcessoOficial":19782,"vlUrgencia":0,"flBloqueiaTrami":"00000","tramitacaoBloqueada":false,"sgSetorAbertura":"SF-312","correspondencia":false,"deAssunto":"Recurso de Auto de Infração ou Impugnação de Lançamento","cdGrupoAssunto":215,"key":"1_2025_19782_1-1","cdAssunto":215,"nuAno":"2025","digital":true,"flPrazoProcesso":"N","flTipoProcesso":"D","flParecerTecnico":"N","qtTramitacoesSetor":1,"cdSistemaPrincipal":64,"flPecaFisica":"N","flSemRestricao":"S","nmUsuarioRecebto":"GABRIEL ELUD ROCHA DA SILVA GOMES","cdSetorAnterior":264,"dtRecebimento":"2026-01-27","sgSetorAtual":"SF-2","cdUsuario":"GABRIEL.GOMES","size":1,"dtEncaminhamento":"2026-01-27","numeroFormatado":"PMDI 00019782/2025","cdOrgaoSetor":1,"flProcedencia":"E"},'1_2025_19506_1-1':{"deComplemento":"[Portal] RECURSO DE AUTO DE INFRAÇÃO OU IMPUGNAÇÃO DE LANÇAMENTO\nInscrição Mobiliária (CCM): 91048\nNúmero do Auto de Infração: 158888, 158890, 158891, 158889, 158892, 158893\nNúmero do Processo: 14514/2025\n\nPrezado Sr Julgador,\nA empresa requerente, ora impugnante, não se conformando com os autos de infrações imputados, e c/c exclusão do Simples nacional, vem com o devido acatamento, apresentar no prazo legal, a competente impugnação face aos AIIM¿s lavrados pela r. autoridade fiscal deste Município.\n\nNT\nPD","nuProcesso":19506,"dtEncaminhamentoFmt":"28/01/2026","cdUsuarioRecebto":"JANAINA.MACEDO","sgOrgaoSetorOrigem":"SF-312","cdSistema":64,"sgSetorAnterior":"SF-22","titulo":"PMDI 00019506/2025 Vol. 1","flRecusado":"0","segDetalhamento":1,"nuVolume":1,"qtPagina":0,"cdSetorAtual":178,"nuProcessoOficial":19506,"vlUrgencia":0,"flBloqueiaTrami":"00000","tramitacaoBloqueada":false,"sgSetorAbertura":"SF-312","correspondencia":false,"deAssunto":"Recurso de Auto de Infração ou Impugnação de Lançamento","cdGrupoAssunto":215,"key":"1_2025_19506_1-1","cdAssunto":215,"nuAno":"2025","digital":true,"flPrazoProcesso":"N","flTipoProcesso":"D","flParecerTecnico":"N","qtTramitacoesSetor":1,"cdSistemaPrincipal":64,"flPecaFisica":"N","flSemRestricao":"S","nmUsuarioRecebto":"Janaina de Cassia Santos de Macedo","cdSetorAnterior":264,"tags":"<div class=\"div-tag-AVISO\"><span class=\"span-tag-AVISO\">Assinatura pendente<\/span><\/div>","dtRecebimento":"2026-01-30","sgSetorAtual":"SF-2","size":1,"dtEncaminhamento":"2026-01-28","numeroFormatado":"PMDI 00019506/2025","cdOrgaoSetor":1,"flProcedencia":"E","deJsonTag":"[{\"tipo\":\"AVISO\",\"texto\":\"Assinatura pendente\"}]"},'1_2025_12845_1-1':{"deComplemento":"LEVANTAMENTO FISCAL (Processo Interno)\n\nSolicito abertura de processo interno- EQUIPE ASSISTÊNCIA MÉDICA LTDA ¿ CNPJ 14.074.423/0001-60","nuProcesso":12845,"dtEncaminhamentoFmt":"24/07/2025","cdUsuarioRecebto":"JANAINA.MACEDO","sgOrgaoSetorOrigem":"SF-312","cdSistema":64,"sgSetorAnterior":"SF-11","titulo":"PMDI 00012845/2025 Vol. 1","flRecusado":"1","segDetalhamento":1,"nuVolume":1,"qtPagina":0,"cdSetorAtual":178,"nuProcessoOficial":12845,"vlUrgencia":0,"flBloqueiaTrami":"00000","tramitacaoBloqueada":false,"sgSetorAbertura":"SF-312","correspondencia":false,"deAssunto":"Levantamento Fiscal","cdGrupoAssunto":348,"key":"1_2025_12845_1-1","cdAssunto":348,"nuAno":"2025","digital":true,"flPrazoProcesso":"N","flTipoProcesso":"D","flParecerTecnico":"N","qtTramitacoesSetor":2,"cdSistemaPrincipal":64,"flPecaFisica":"N","flSemRestricao":"N","nmUsuarioRecebto":"Janaina de Cassia Santos de Macedo","cdSetorAnterior":261,"dtRecebimento":"2025-07-24","sgSetorAtual":"SF-2","size":1,"dtEncaminhamento":"2025-07-24","numeroFormatado":"PMDI 00012845/2025","cdOrgaoSetor":1,"flProcedencia":"I"},'1_2025_5501_1-1':{"deComplemento":"PROCEDIMENTO INTERNO(Processo Interno): Averiguação das inscrições imobiliárias constantes como IPTU Territorial","nuProcesso":5501,"dtEncaminhamentoFmt":"05/02/2026","cdUsuarioRecebto":"VANESSAF.SILVA","sgOrgaoSetorOrigem":"SF-312","cdSistema":64,"sgSetorAnterior":"SF-21","titulo":"PMDI 00005501/2025 Vol. 1","flRecusado":"0","segDetalhamento":1,"nuVolume":1,"qtPagina":0,"cdSetorAtual":178,"nuProcessoOficial":5501,"vlUrgencia":0,"flBloqueiaTrami":"00000","tramitacaoBloqueada":false,"sgSetorAbertura":"SF-312","correspondencia":false,"deAssunto":"Procedimento Interno","cdGrupoAssunto":285,"key":"1_2025_5501_1-1","cdAssunto":285,"nuAno":"2025","digital":true,"flPrazoProcesso":"N","flTipoProcesso":"D","flParecerTecnico":"N","qtTramitacoesSetor":3,"cdSistemaPrincipal":64,"flPecaFisica":"N","flSemRestricao":"S","nmUsuarioRecebto":"Vanessa Ferreira Da Silva","cdSetorAnterior":263,"dtRecebimento":"2026-02-09","sgSetorAtual":"SF-2","size":1,"dtEncaminhamento":"2026-02-05","numeroFormatado":"PMDI 00005501/2025","cdOrgaoSetor":1,"flProcedencia":"I"},'1_2024_32631_1-1':{"deComplemento":"DESCONTO PARA EMPRESAS QUE COMPROVEM O AUMENTO DO VALOR ADICIONADO  (Portal)  \n Inscrição Mobiliária: 79862 * Inscrição Imobiliária: 000003506700700.\n\nSolicitamos o Desconto de IPTU/ 2025 para a empresa CHEMEN INDUSTRIA E COMERCIO DE PRODUTOS QUIMICOS LTDA - CNPJ: 05.465.894/0001-09N - CMC: 79862 - e Inscrição Imobiliaria 00000.35.067.007.00","nuProcesso":32631,"dtEncaminhamentoFmt":"17/03/2026","sgOrgaoSetorOrigem":"SEDET","cdSistema":64,"sgSetorAnterior":"SF-21","titulo":"PMDI 00032631/2024 Vol. 1","flRecusado":"0","segDetalhamento":1,"nuVolume":1,"qtPagina":0,"cdSetorAtual":178,"dtPrazoFmt":"22/03/2026","nuProcessoOficial":32631,"vlUrgencia":0,"flBloqueiaTrami":"00000","tramitacaoBloqueada":false,"dtPrazo":"2026-03-22","sgSetorAbertura":"SEDET","correspondencia":false,"deAssunto":"Desconto Para Empresas Que Comprovem O Aumento Do Valor Adicionado","cdGrupoAssunto":402,"key":"1_2024_32631_1-1","cdAssunto":402,"nuAno":"2024","digital":true,"flPrazoProcesso":"N","flTipoProcesso":"D","flParecerTecnico":"N","qtTramitacoesSetor":1,"cdSistemaPrincipal":64,"flPecaFisica":"N","flSemRestricao":"S","cdSetorAnterior":263,"sgSetorAtual":"SF-2","size":1,"dtEncaminhamento":"2026-03-17","numeroFormatado":"PMDI 00032631/2024","cdOrgaoSetor":1,"flProcedencia":"E"},'1_2024_31916_1-1':{"deComplemento":"CID - ATUALIZAÇÃO DE PROJETO E NOVOS INVESTIMENTOS  (Portal)  \n Nº Processo CID: 37935/2023 - Inscrição Mobiliária: undefined - Inscrição Imobiliária: 000003405004900.\n\nPrezados\nSolicitamos a Atualização de Certificado de Incentivo ao Desenvolvimento (CID)para redução do IPTU e da TLF 2025, considerando os investimentos da empresa para incentivo à economia do Município para as inscrições Imobiliárias:00000.34.050.049.00/00000.34.050.050.00/00000.34.050.36.00, não foi possível incluir as três Inscrições Imobiliárias no campo &quot;Número da Inscrição Imobiliária(IPTU)&quot;","nuProcesso":31916,"dtEncaminhamentoFmt":"03/03/2026","cdUsuarioRecebto":"VANESSAF.SILVA","sgOrgaoSetorOrigem":"SEDET","cdSistema":64,"sgSetorAnterior":"SF","titulo":"PMDI 00031916/2024 Vol. 1","flRecusado":"0","segDetalhamento":1,"nuVolume":1,"qtPagina":0,"cdSetorAtual":178,"nuProcessoOficial":31916,"vlUrgencia":0,"flBloqueiaTrami":"00000","tramitacaoBloqueada":false,"sgSetorAbertura":"SEDET","correspondencia":false,"deAssunto":"CID - Atualização De Projetos E Novos Investimentos","cdGrupoAssunto":29,"key":"1_2024_31916_1-1","cdAssunto":29,"nuAno":"2024","digital":true,"flPrazoProcesso":"N","flTipoProcesso":"D","flParecerTecnico":"N","qtTramitacoesSetor":2,"cdSistemaPrincipal":64,"flPecaFisica":"N","flSemRestricao":"S","nmUsuarioRecebto":"Vanessa Ferreira Da Silva","cdSetorAnterior":56,"dtRecebimento":"2026-03-03","sgSetorAtual":"SF-2","size":1,"dtEncaminhamento":"2026-03-03","numeroFormatado":"PMDI 00031916/2024","cdOrgaoSetor":1,"flProcedencia":"E"},'1_2023_36288_1-1':{"deComplemento":"DESPESA PAGAMENTO (Processo Interno) \n\nPagamentos à Empresa AEQUUS CONSULTORIA ECONÔMICA E SISTEMAS S/S LTDA - BI.    CONTRATAÇÃO DE EMPRESA PARA FORNECIMENTO DE FERRAMENTA GERENCIAL PARA ACOMPANHAMENTO E PLANEJAMENTO FINANCEIRO E TRIBUTÁRIO, oriundo do Processo de Compras nº. 022/2023.","nuProcesso":36288,"dtEncaminhamentoFmt":"13/03/2026","cdUsuarioRecebto":"VANESSAF.SILVA","sgOrgaoSetorOrigem":"SF-312","cdSistema":64,"sgSetorAnterior":"SF","titulo":"PMDI 0040814/2023 Vol. 1","flRecusado":"0","segDetalhamento":1,"nuVolume":1,"qtPagina":0,"cdSetorAtual":178,"nuProcessoOficial":40814,"vlUrgencia":0,"flBloqueiaTrami":"00000","tramitacaoBloqueada":false,"sgSetorAbertura":"SF-312","correspondencia":false,"deAssunto":"Despesa / Pagamento","cdGrupoAssunto":332,"key":"1_2023_36288_1-1","cdAssunto":332,"nuAno":"2023","digital":true,"flPrazoProcesso":"N","flTipoProcesso":"D","flParecerTecnico":"N","qtTramitacoesSetor":14,"cdSistemaPrincipal":64,"flPecaFisica":"N","flSemRestricao":"S","nmUsuarioRecebto":"Vanessa Ferreira Da Silva","cdSetorAnterior":56,"dtRecebimento":"2026-03-16","sgSetorAtual":"SF-2","size":1,"dtEncaminhamento":"2026-03-13","numeroFormatado":"PMDI 0040814/2023","cdOrgaoSetor":1,"flProcedencia":"I"}};filaHandler.allItemKeys = ['1_2026_9949_1-1','1_2026_9923_1-1','1_2026_9816_1-1','1_2026_9788_1-1','1_2026_9771_1-1','1_2026_6248_1-1','1_2026_4370_1-1','1_2026_4148_1-1','1_2026_3365_1-1','1_2026_2737_1-1','1_2026_687_1-1','1_2025_35923_1-1','1_2025_35434_1-1','1_2025_35254_1-1','1_2025_33060_1-1','1_2025_19871_1-1','1_2025_19840_1-1','1_2025_19782_1-1','1_2025_19506_1-1','1_2025_12845_1-1','1_2025_5501_1-1','1_2024_32631_1-1','1_2024_31916_1-1','1_2023_36288_1-1'];filaHandler.page=0;filaHandler.pages=1;filaHandler.perPage=50;filaHandler.facets=[{campo:"tipo",titulo:"TIPO",itens:[{codigo:"PROC",nome:"Processo",quantidade:24}]},{campo:"natureza",titulo:"NATUREZA PROC./DOC.",itens:[{codigo:"D",nome:"Digital",quantidade:24}]},{campo:"unAtual",titulo:"UNIDADE ATUAL",itens:[{codigo:"178",nome:"SF-2",quantidade:24}]},{campo:"usuarioRecebto",titulo:"USUÁRIO RECEBIMENTO",itens:[{codigo:"GABRIEL.GOMES",nome:"GABRIEL ELUD ROCHA DA SILVA GOMES",quantidade:4},{codigo:"JANAINA.MACEDO",nome:"Janaina de Cassia Santos de Macedo",quantidade:3},{codigo:"SISTEMA",nome:"Usuário do sistema",quantidade:3},{codigo:"VANESSAF.SILVA",nome:"Vanessa Ferreira Da Silva",quantidade:5}]},{campo:"unEnc",titulo:"UNIDADE ENCAMINHAMENTO",itens:[{codigo:"29",nome:"DIGITAL",quantidade:3},{codigo:"56",nome:"SF",quantidade:2},{codigo:"261",nome:"SF-11",quantidade:1},{codigo:"263",nome:"SF-21",quantidade:2},{codigo:"264",nome:"SF-22",quantidade:10},{codigo:"279",nome:"SMAS-511",quantidade:5},{codigo:"309",nome:"SS-412",quantidade:1}]},{campo:"classificacao",titulo:"CLASSIFICAÇÃO",itens:[{codigo:"212",nome:"Cancelamento de Débitos (Imóvel, CMC ou Contribuinte Geral)",quantidade:2},{codigo:"24",nome:"Cancelamento de Despesas Funerárias",quantidade:5},{codigo:"29",nome:"CID - Atualização De Projetos E Novos Investimentos",quantidade:1},{codigo:"402",nome:"Desconto Para Empresas Que Comprovem O Aumento Do Valor Adicionado",quantidade:1},{codigo:"332",nome:"Despesa / Pagamento",quantidade:1},{codigo:"2884",nome:"Execução Fiscal",quantidade:1},{codigo:"348",nome:"Levantamento Fiscal",quantidade:1},{codigo:"285",nome:"Procedimento Interno",quantidade:4},{codigo:"215",nome:"Recurso de Auto de Infração ou Impugnação de Lançamento",quantidade:7},{codigo:"176",nome:"Restituição de IPVA - Registro ou Transferência de Veículo para Diadema",quantidade:1}]}];var lazyArray = [['1_2026_9949_1-1','1_2026_9923_1-1','1_2026_9816_1-1','1_2026_9788_1-1','1_2026_9771_1-1','1_2026_6248_1-1','1_2026_4370_1-1','1_2026_4148_1-1','1_2026_3365_1-1','1_2026_2737_1-1','1_2026_687_1-1','1_2025_35923_1-1','1_2025_35434_1-1','1_2025_35254_1-1','1_2025_33060_1-1','1_2025_19871_1-1','1_2025_19840_1-1','1_2025_19782_1-1','1_2025_19506_1-1','1_2025_12845_1-1','1_2025_5501_1-1','1_2024_32631_1-1','1_2024_31916_1-1','1_2023_36288_1-1']];filaHandler.handler='br.com.softplan.sider.cpav.filatrabalho.processo.CpavProcessosFilaTrabalhoHandler';filaHandler.cdVisualizacao=2;var searchFields = ['sgSetorAnterior','sgSetorAtual','nmUsuarioRecebto','dtEncaminhamentoFmt','dtPrazoFmt','deComplemento','tags','titulo'];loopJS=filaProcesso.onCreateProcesso;onClickJS=filaProcesso.abreProcesso;var enderecoValidacao = '/cpavFilaTrabalho/valida.do';filaHandler.acoes={64:{'ENCAMINHAR_PROCESSO':{'urlAcao':'/cpav/abrirEncaminhamento.do','nmFuncaoJS':'','idAcao':'ENCAMINHAR_PROCESSO'},'ARQUIVAR_PROCESSO':{'urlAcao':'/cpav/abrirArquivamento.do','nmFuncaoJS':'','idAcao':'ARQUIVAR_PROCESSO'},'RECEBER_PROCESSO':{'urlAcao':'','nmFuncaoJS':'receberProcessos','idAcao':'RECEBER_PROCESSO'},'RECUSAR_PROCESSO':{'urlAcao':'/cpav/abrirRecusa.do','nmFuncaoJS':'','idAcao':'RECUSAR_PROCESSO'},'IMPRIMIR_FILA':{'urlAcao':'','nmFuncaoJS':'imprimirFila','idAcao':'IMPRIMIR_FILA'}}};configureOptions();carregaJavascripts(['/cpav/js/integracao/cpavAcoesIntegracao.js',]);carregaEstilos(['/cpav/css/integracao/cpavAcoesIntegracao.css',]);filaHandler.setTotal(24);filaHandler.init(true);</script> <input type="hidden" name="tokenFila" id="tokenFila" value="Q3BhdkZpbGFUcmFiYWxob19HQUJSSUVMLkdPTUVT"/>  <script>  	gerarCookie('CpavFilaTrabalho_GABRIEL.GOMES','eMKcw41Uw4tOw4MwEMK8w7crIsOfccOawooDBycISMKLwpBaQBAQN8K0SUzDmcOKw7FGwrYbCl%2FCj0NSw5rCqhRVwpw4w7k1Mzs7K1nCnC5LFcOUw5JYJB3CsQHDr8KzQMOqwpwKw5TCs8KIPcKkw6PCoxN2GsO3w4QcasOYwoTCncOww77Ds8OxYMOIwoJcwoHCtRFrw555JkFbw740wp0kw5IrSMODw6JeICjCm8OLw5zCrXDCmcOhOcKVw5zDksKLwqsUaG7DkcOjeF5Bw41LT1HCvHDDhMOHwqjCnMKhC8OSdsKhHMO4E8KkBjJQwq90ayjCl8OWwpJNw5IbFmARwrHDg8Kww73DhkogasOCIsKoDFXDksK4w7fCiMOlUFZkwq%2FDjWjDqcKkw5HDtMKFw6lAwqV0wq%2FDpMOlwqEow5rDqz81csORFljClMOSUFfCpDHDngrDrsOaKVLCrMKoamwvw50KFAjDlC4ewojCsFk6XsOYEMO3wojCvMKow5ESM0lmBsK0w5bCsMOOw7jCgcOGw5ciw6x2wrtKImwbbENYP8O8w4s8wobDu8Oyw5jDk8OFw4ZuwqdIQiVqXE1%2FO8Otw594D3YBw6bCm8OXw6V6eXZ%2BdzXCmsOww4vCm8Opw6h%2BM8Otw5%2FClB7DkUspw7zCgBw2bQwPwrBBw4bDh3zDvsK%2BbcOiw7YuOcKswrTDs8O5blMTwpzCoQPCtMKHw7FrwpRvw5vDvMKUCsO6wpnCvMKewowIwpvDnyLDrn0CwoQ%2BcMOj','eprocesso.diadema.sp.gov.br');  </script>
+				</form>
+		
+
+		</div>
+
+		</div>
+			<div class="screen" id="screen2">
+				<div class="sidebar">
+					<ul>
+						<li class="hide" title="Voltar">
+							<a id="backBtn"></a>
+						</li>
+					</ul>
+				</div>
+				<div class="iframe-container">
+				<iframe id="customIframe" src="about:blank"></iframe>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript">
+			(function() {
+				function backToScreen1(e) {
+					var container = document.getElementById("container-custom");
+					var screen2 = document.getElementById("screen2");
+					var customIframe = document.getElementById("customIframe");
+					var submitButton = document.getElementsByName("btnFiltrar")[0];
+					e.preventDefault();
+
+					screen2.classList.remove("active");
+
+					screen2.addEventListener("transitionend", function handler(ev) {
+						if (ev.propertyName === "opacity") {
+							container.classList.remove("show-screen2");
+							container.classList.add("show-screen1");
+
+							customIframe.src = "about:blank";
+
+							filaHandler.carregaPagina(filaHandler.page, true);
+
+							BENV_removeProcessando();
+
+							screen2.removeEventListener("transitionend", handler);
+						}
+					});
+				}
+
+				var backBtn = document.getElementById("backBtn");
+				if (backBtn) backBtn.addEventListener("click", backToScreen1);
+			})();
+		</script>
+	</body>
+
+</html>
