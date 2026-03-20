@@ -271,11 +271,13 @@ class EprocessoExtractor:
             row.update(campos)
             processos.append(row)
 
-        if ids_no_html and len(processos) != len(ids_no_html):
+        ids_unicos_html = set(ids_no_html)
+        ids_parseados   = {p["id_raw"] for p in processos}
+        faltando = ids_unicos_html - ids_parseados
+        if faltando:
             print(
-                f"[AVISO] Divergência: {len(ids_no_html)} IDs no HTML, "
-                f"mas apenas {len(processos)} foram parseados. "
-                f"IDs ausentes: {set(ids_no_html) - {p['id_raw'] for p in processos}}"
+                f"[AVISO] Divergência: {len(ids_unicos_html)} IDs únicos no HTML, "
+                f"{len(processos)} parseados. Faltando: {faltando}"
             )
 
         return processos
